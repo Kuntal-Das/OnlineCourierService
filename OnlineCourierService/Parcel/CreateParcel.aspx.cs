@@ -36,13 +36,36 @@ namespace OnlineCourierService.Parcel
                     {
                         ProundedDP.Style.Add("background-image", cus.imgurl);
                     }
+                    TBPweight.Enabled = TBsName.Enabled = TBsEmail.Enabled =
+                        TBsAddr.Enabled = TBrName.Enabled = TBrEmail.Enabled =
+                        TBrAddr.Enabled = false;
                 }
                 else if (redirect)
                 {
                     Response.Cookies.Add(new HttpCookie("redirectLink", "~" + link));
                     Server.Transfer("~/LoginPopup.aspx");
                 }
+                else
+                {
+                    Psender.Visible = false;
+                }
             }
+        }
+        private void Notifyuser(string msg, bool isSuccessful)
+        {
+            if (isSuccessful)
+            {
+                Lerr.Text = msg;
+                Lerr.Style.Add("color", "Navy");
+                PError.Style.Add("border", "2px solid Navy");
+            }
+            else
+            {
+                Lerr.Text = msg;
+                Lerr.Style.Add("color", "Red");
+                PError.Style.Add("border", "2px solid lightred");
+            }
+            PError.Style.Add("display", "block");
         }
         protected void Logout(object sender, EventArgs e)
         {
@@ -58,6 +81,11 @@ namespace OnlineCourierService.Parcel
 
         protected void DDLsReg_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadsBranch();
+            DDLsbranch.Focus();
+        }
+        private void LoadsBranch()
+        {
             long rid = Convert.ToInt64(DDLsReg.SelectedValue);
             if (rid != -1)
             {
@@ -66,10 +94,14 @@ namespace OnlineCourierService.Parcel
                 DDLsbranch.DataValueField = "Bid";
                 DDLsbranch.DataBind();
             }
-            DDLsbranch.Focus();
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DDLrReg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadrBranch();
+            DDLrbranch.Focus();
+        }
+        private void LoadrBranch()
         {
             long rid = Convert.ToInt64(DDLrReg.SelectedValue);
             if (rid != -1)
@@ -79,7 +111,6 @@ namespace OnlineCourierService.Parcel
                 DDLrbranch.DataValueField = "Bid";
                 DDLrbranch.DataBind();
             }
-            DDLrbranch.Focus();
         }
 
         protected void DDLPtype_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,28 +127,85 @@ namespace OnlineCourierService.Parcel
 
         private void TogglePFood()
         {
-            if (DDLPtype.SelectedValue == "CookedFood" || DDLPtype.SelectedValue == "DryFood") 
+            if (DDLPtype.SelectedValue == "CookedFood" || DDLPtype.SelectedValue == "DryFood")
             {
                 if (DDLpackage.SelectedIndex == 0)//&& !PFood.Visible
                 {
                     PFood.Visible = true;
                 }
-                else if(DDLpackage.SelectedIndex == 1)//&& PFood.Visible
+                else if (DDLpackage.SelectedIndex == 1)//&& PFood.Visible
                 {
                     PFood.Visible = false;
                 }
             }
             else if (DDLPtype.SelectedValue != "CookedFood" && DDLPtype.SelectedValue != "DryFood")
             {
-                if (DDLpackage.SelectedIndex == 1)//&& PFood.Visible
+                if (PFood.Visible)
                 {
                     PFood.Visible = false;
-                }else if (DDLpackage.SelectedIndex == 0)//&& !PFood.Visible
-                {
-                    PFood.Visible = true;
                 }
             }
         }
+
+        protected void BRec_Click(object sender, EventArgs e)
+        {
+            if (TBORemail.Text != null)
+            {
+                string Recemail = TBORemail.Text.Trim();
+                Customer cus = new Customer(Session["LightCus"].ToString(), true);
+                cus.FillData();
+                if (cus.email.Equals(Recemail))
+                {
+                    Notifyuser("Do not Enter Your Email Address !", false);
+                    return;
+                }
+                if (Customer.CountCustomer(Recemail) != 1)
+                {
+                    Notifyuser("Entered Email Address is not Registered in Our Website!", false);
+                    return;
+                }
+                HFSender.Value = TBORemail.Text.Trim();
+            }
+            Psender.Visible = false;
+            TBPweight.Enabled = TBsName.Enabled = TBsEmail.Enabled =
+                        TBsAddr.Enabled = TBrName.Enabled = TBrEmail.Enabled =
+                        TBrAddr.Enabled = true;
+
+            LoadSender(new Customer(Session["LightCus"].ToString(), true));
+            LoadReceiver(Customer.GetinfoByEmail(TBORemail.Text.Trim()));
+        }
+
+        protected void LBRecC_Click(object sender, EventArgs e)
+        {
+            Psender.Visible = false;
+            TBPweight.Enabled = TBsName.Enabled = TBsEmail.Enabled =
+                        TBsAddr.Enabled = TBrName.Enabled = TBrEmail.Enabled =
+                        TBrAddr.Enabled = true;
+            LoadSender(new Customer(Session["LightCus"].ToString(), true));
+        }
+        private void LoadSender(Customer sen)
+        {
+            sen.FillData();
+            TBsName.Text = sen.name;
+            TBsEmail.Text = sen.email;
+            TBsAddr.Text = sen.address;
+            DDLsReg.SelectedValue = Branch.GetRidbyBid(sen.BID).ToString();
+            LoadsBranch();
+            DDLsbranch.SelectedValue = sen.BID.ToString();
+        }
+        private void LoadReceiver(Customer rec)
+        {
+            rec.FillData();
+            TBrName.Text = rec.name;
+            TBrEmail.Text = rec.email;
+            TBrAddr.Text = rec.address;
+            DDLrReg.SelectedValue = Branch.GetRidbyBid(rec.BID).ToString();
+            LoadrBranch();
+            DDLrbranch.SelectedValue = rec.BID.ToString();
+        }
+
+
+
 
     }
 }

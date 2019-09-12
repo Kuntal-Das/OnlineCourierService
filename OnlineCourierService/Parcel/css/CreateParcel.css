@@ -83,3 +83,27 @@
         opacity: 1;
         pointer-events: all;
     }
+.overylay {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.40);
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.overylay__content {
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.70);
+    padding: 20px;
+}
+.overylay__content >p{
+    text-align:center;
+    margin:15px 5px;
+}

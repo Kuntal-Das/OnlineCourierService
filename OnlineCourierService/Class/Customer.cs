@@ -12,8 +12,8 @@ namespace OnlineCourierService.Class
     {
         private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
 
-        public string cid{ private get; set; }
-        public string name { get;set; }
+        public string cid { private get; set; }
+        public string name { get; set; }
         public string address { get; set; }
         public string gender { get; set; }
         public DateTime dob { get; set; }
@@ -24,7 +24,35 @@ namespace OnlineCourierService.Class
         public string status { get; set; }
         public string pass { private get; set; }
         public string imgurl { get; set; }
-
+        public static Customer GetinfoByEmail(string Email)
+        {
+            Customer cus = null;
+            using (SqlConnection con = new SqlConnection(connectionstr))
+            {
+                try
+                {
+                    con.Open();
+                    string q = "Select CID from Customer WHERE Email=@EMAIL";
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    cmd.Parameters.AddWithValue("@EMAIL", Email);
+                    cus = new Customer(Convert.ToString(cmd.ExecuteScalar()), true);
+                }
+                catch (SqlException)
+                {
+                    return cus;
+                }
+                catch (Exception)
+                {
+                    return cus;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            cus.FillData();
+            return cus;
+        }
         public Customer(string CID, bool isActive)
         {
             this.cid = CID;
@@ -42,7 +70,7 @@ namespace OnlineCourierService.Class
             this.phno = phno;
             this.status = "Active";
         }
-        public Customer(string name,string address,string gender,DateTime dob,long phno,string email,long BID,string accType,string pass)
+        public Customer(string name, string address, string gender, DateTime dob, long phno, string email, long BID, string accType, string pass)
         {
             this.name = name;
             this.address = address;
@@ -78,10 +106,10 @@ namespace OnlineCourierService.Class
             }
             return cid;
         }
-        public static int ResetPassword(string guid,string pass)
+        public static int ResetPassword(string guid, string pass)
         {
             int c = -1;
-            using(SqlConnection con=new SqlConnection(connectionstr))
+            using (SqlConnection con = new SqlConnection(connectionstr))
             {
                 try
                 {
@@ -177,7 +205,7 @@ namespace OnlineCourierService.Class
             }
         }
 
-        public int UpdatePassword(string newpass,string oldpass)
+        public int UpdatePassword(string newpass, string oldpass)
         {
             using (SqlConnection con = new SqlConnection(connectionstr))
             {
@@ -187,8 +215,8 @@ namespace OnlineCourierService.Class
                     SqlCommand cmd = new SqlCommand("UpdateCPass", con);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@OLD_CID",this.cid);
-                    cmd.Parameters.AddWithValue("@OLD_PASS",Password.HashPassword(oldpass));
+                    cmd.Parameters.AddWithValue("@OLD_CID", this.cid);
+                    cmd.Parameters.AddWithValue("@OLD_PASS", Password.HashPassword(oldpass));
                     cmd.Parameters.AddWithValue("@PASS", Password.HashPassword(newpass));
 
                     return cmd.ExecuteNonQuery();
@@ -338,7 +366,7 @@ namespace OnlineCourierService.Class
                     cmd.Parameters.AddWithValue("@STATUS", status);
                     cmd.Parameters.AddWithValue("@PASS", Password.HashPassword(pass));
 
-                    this.cid=Convert.ToString(cmd.ExecuteScalar());
+                    this.cid = Convert.ToString(cmd.ExecuteScalar());
 
                     //this.cid = Convert.ToString(cmd.Parameters["@CID"].Value);
                     return this.cid;
@@ -355,7 +383,7 @@ namespace OnlineCourierService.Class
                 {
                     con.Close();
                 }
-             }
+            }
         }
         public int InsertUpdateImage(HttpPostedFile img)
         {
@@ -368,7 +396,7 @@ namespace OnlineCourierService.Class
                 BinaryReader imgbin = new BinaryReader(imgstream);
                 byte[] imgBytes = imgbin.ReadBytes((int)imgstream.Length);
 
-                using (SqlConnection con=new SqlConnection(connectionstr))
+                using (SqlConnection con = new SqlConnection(connectionstr))
                 {
                     try
                     {

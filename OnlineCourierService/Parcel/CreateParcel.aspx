@@ -2,22 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/CreateParcel.css" rel="stylesheet" />
-    <style type="text/css">
-        .auto-style1 {
-            min-width: 300px;
-            max-width: max-content;
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            left: 0px;
-            top: 0px;
-        }
-    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHerrMsg" runat="server">
-    <asp:Panel ID="PError" runat="server" CssClass="PError">
+    <asp:Panel ID="PError" runat="server" CssClass="PError" EnableViewState="false">
         <div class="cross"></div>
         <asp:Label ID="Lerr" runat="server" Text="" CssClass="Lerr"></asp:Label>
         <script>
@@ -53,6 +41,26 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
+    <asp:HiddenField ID="HFSender" runat="server" />
+    <asp:Panel ID="Psender" CssClass="overylay" runat="server" Visible="true">
+        <div class="overylay__content">
+            <p>
+                Do You know the Receiver have an Account on our website, if so kindly provide his/her Email address.<br/>
+                it will be used to fill up Receiver's data from our server
+            </p>
+            <div class="inputbox">
+                <asp:TextBox ID="TBORemail" ValidationGroup="ORemail" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Receiver's Email Address</span>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="ORemail" ControlToValidate="TBORemail" runat="server" ErrorMessage="Receiver's Email is Reqired"
+                    Display="Dynamic" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationGroup="ORemail" runat="server" ErrorMessage="Invalid Receiver's Email" ControlToValidate="TBORemail" Display="Dynamic"
+                    ForeColor="Red" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RegularExpressionValidator>
+                <asp:Button ID="BRec" CssClass="btn" runat="server" ValidationGroup="ORemail" Text="Submit" OnClick="BRec_Click" />
+                <asp:LinkButton ID="LBRecC" CssClass="cbtn" runat="server" CausesValidation="false" OnClick="LBRecC_Click">Cancel</asp:LinkButton>
+                <asp:ValidationSummary ID="ValidationSummary1" ValidationGroup="ORemail" ForeColor="red" DisplayMode="List" runat="server" />
+            </div>
+        </div>
+    </asp:Panel>
     <div class="full__div grid">
         <h3 class="hero__text">Parcel Info.</h3>
         <div class="inputbox">
@@ -95,7 +103,7 @@
             <asp:CompareValidator ID="CVweight" runat="server" ErrorMessage="weight must be in Decimal" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red" 
                 Operator="DataTypeCheck" SetFocusOnError="True" Type="Double">*</asp:CompareValidator>
             <asp:RangeValidator ID="RVweight" runat="server" ErrorMessage="weight must be between 1-100" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red" 
-                MaximumValue="101" MinimumValue="1" SetFocusOnError="True">*</asp:RangeValidator>
+                MaximumValue="100" MinimumValue="1" SetFocusOnError="True" type="Double">*</asp:RangeValidator>
 
         </div>
     </div>
@@ -124,7 +132,7 @@
                 <asp:RequiredFieldValidator ID="RFVsAddr" runat="server" ErrorMessage="Sender's Address is Required" ControlToValidate="TBsAddr" Display="Dynamic" 
                     ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
-            <div class="auto-style1">
+            <div class="inputbox">
                 <asp:Label ID="LsReg" CssClass="lable" runat="server" Text="Select Sender's Region :"></asp:Label>
                 <asp:DropDownList ID="DDLsReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name"
                     DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DDLsReg_SelectedIndexChanged">
@@ -167,7 +175,7 @@
             <div class="inputbox">
                 <asp:Label ID="LrReg" CssClass="lable" runat="server" Text="Select Receiver's Region :"></asp:Label>
                 <asp:DropDownList ID="DDLrReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name" DataValueField="ID"
-                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+                    OnSelectedIndexChanged="DDLrReg_SelectedIndexChanged" AutoPostBack="True">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RFVrReg" runat="server" ErrorMessage="Receiver's Region is Required" ControlToValidate="DDLrReg" Display="Dynamic" 
                     ForeColor="Red" SetFocusOnError="True" InitialValue="-1">*</asp:RequiredFieldValidator>
@@ -207,12 +215,12 @@
             <div class="inputbox">
                 <asp:TextBox ID="TBfood" CssClass="input" runat="server" required=""></asp:TextBox>
                 <span class="floating-placeholder">Enter how many container you Need</span>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Containers No. is Required" SetFocusOnError="True" ControlToValidate="TBfood" 
+                <asp:RequiredFieldValidator ID="RFVContainer" runat="server" ErrorMessage="Containers No. is Required" SetFocusOnError="True" ControlToValidate="TBfood" 
                 Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Containers No. be in Integer" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
+            <asp:CompareValidator ID="CVContainer" runat="server" ErrorMessage="Containers No. be in Integer" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
                 Operator="DataTypeCheck" SetFocusOnError="True" Type="Integer">*</asp:CompareValidator>
-            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Containers No. must be between 1-10" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
-                MaximumValue="10" MinimumValue="1" SetFocusOnError="True">*</asp:RangeValidator>
+            <asp:RangeValidator ID="RVContainer" runat="server" ErrorMessage="Containers No. must be between 1-10" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
+                MaximumValue="10" MinimumValue="1" SetFocusOnError="True" type="Integer">*</asp:RangeValidator>
 
             </div>
             <br />
@@ -223,7 +231,7 @@
     <asp:ValidationSummary ID="VSparcel" ForeColor="Red" DisplayMode="List" runat="server" style="margin:10px 20px"/>
     <div class="full__div">
         <h3 class="hero__text">Place Pickup Request/Send Package </h3>
-        <asp:Button ID="Bsubmit" CssClass="btn" runat="server" Text="Palce Requet" />
+        <asp:Button ID="Bsubmit" CssClass="btn" runat="server" Text="Place Requet" />
         <asp:LinkButton ID="LBcancel" CssClass="cbtn" runat="server">Cancel</asp:LinkButton>
     </div>
     <svg display="none">
