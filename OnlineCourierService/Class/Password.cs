@@ -35,6 +35,7 @@ namespace OnlineCourierService.Class
             sbEmailBody.Append("Dear " + UserName + ",<br/><br/>");
             sbEmailBody.Append("Please click on the following link to reset your password");
             sbEmailBody.Append("<br/>"); sbEmailBody.Append("<a href=\"http://"+link +"?uid=" + UniqueId+"\">Reset Password</a>");
+            sbEmailBody.Append("<br/> Ignore It If you Have not Made any Request Like This <br/>");
 
             /**********************************************************************
                http://localhost/WebApplication1/Registration/ChangePassword.aspx 
