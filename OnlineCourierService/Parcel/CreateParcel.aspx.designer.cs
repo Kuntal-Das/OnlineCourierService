@@ -148,6 +148,33 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.TextBox TBPweight;
         
         /// <summary>
+        /// RFVpWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVpWeight;
+        
+        /// <summary>
+        /// CVweight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVweight;
+        
+        /// <summary>
+        /// RVweight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RVweight;
+        
+        /// <summary>
         /// OBSReg control.
         /// </summary>
         /// <remarks>
@@ -193,6 +220,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsCID;
         
         /// <summary>
+        /// REVsEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REVsEmail;
+        
+        /// <summary>
         /// TBsAddr control.
         /// </summary>
         /// <remarks>
@@ -200,6 +236,15 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TBsAddr;
+        
+        /// <summary>
+        /// RFVsAddr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsAddr;
         
         /// <summary>
         /// LsReg control.
@@ -220,6 +265,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.DropDownList DDLsReg;
         
         /// <summary>
+        /// RFVsReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsReg;
+        
+        /// <summary>
         /// Lsbranch control.
         /// </summary>
         /// <remarks>
@@ -236,6 +290,15 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDLsbranch;
+        
+        /// <summary>
+        /// RFVsBranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsBranch;
         
         /// <summary>
         /// TBrName control.
@@ -274,6 +337,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVrEmail;
         
         /// <summary>
+        /// REVrEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REVrEmail;
+        
+        /// <summary>
         /// TBrAddr control.
         /// </summary>
         /// <remarks>
@@ -281,6 +353,15 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TBrAddr;
+        
+        /// <summary>
+        /// RFVrAddr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVrAddr;
         
         /// <summary>
         /// LrReg control.
@@ -301,6 +382,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.DropDownList DDLrReg;
         
         /// <summary>
+        /// RFVrReg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVrReg;
+        
+        /// <summary>
         /// LrBranch control.
         /// </summary>
         /// <remarks>
@@ -319,6 +409,24 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.DropDownList DDLrbranch;
         
         /// <summary>
+        /// RFVrbranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVrbranch;
+        
+        /// <summary>
+        /// DDLpackage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLpackage;
+        
+        /// <summary>
         /// PFood control.
         /// </summary>
         /// <remarks>
@@ -326,5 +434,68 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PFood;
+        
+        /// <summary>
+        /// TBfood control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBfood;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// RangeValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        
+        /// <summary>
+        /// VSparcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary VSparcel;
+        
+        /// <summary>
+        /// Bsubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Bsubmit;
+        
+        /// <summary>
+        /// LBcancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LBcancel;
     }
 }

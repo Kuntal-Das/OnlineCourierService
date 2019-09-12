@@ -1,4 +1,15 @@
-﻿.full__div, .half__div {
+﻿.head1 {
+    background-image: url("../../svg/background/hero.svg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+}
+
+.head1__heading {
+    color: whitesmoke;
+}
+
+.full__div, .half__div {
     position: relative;
     border: 2px solid #0094ff;
     border-radius: 10px;
@@ -10,12 +21,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     align-items: center;
-    grid-row-gap:10px;
+    grid-row-gap: 10px;
 }
-.half__div{
-    display:flex;
-    flex-direction:column;
+
+.half__div {
+    display: flex;
+    flex-direction: column;
 }
+
 .hero__text {
     position: absolute;
     top: -1rem;
@@ -31,6 +44,42 @@
     flex-direction: row;
     align-items: center;
 }
-.lable{
-    margin:5px 10px;
+
+.lable {
+    margin: 5px 10px;
 }
+
+.btn {
+    background-color: #0094ff;
+}
+
+.cbtn {
+    background-color: #fe2929;
+}
+
+.info {
+    padding: 1px 8px;
+    border-radius: 50%;
+    border: 1px solid #97c8e9;
+    background-color: whitesmoke;
+}
+
+.msg {
+    position: absolute;
+    left: 100%;
+    width: 300px;
+    z-index: 5;
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid white;
+    background-color: rgba(141, 141, 141, 0.80);
+    transition: opacity 300ms ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+    .info:hover ~ .msg,
+    .msg:hover {
+        opacity: 1;
+        pointer-events: all;
+    }

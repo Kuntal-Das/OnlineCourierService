@@ -37,7 +37,7 @@ namespace OnlineCourierService.Parcel
                         ProundedDP.Style.Add("background-image", cus.imgurl);
                     }
                 }
-                else if(redirect)
+                else if (redirect)
                 {
                     Response.Cookies.Add(new HttpCookie("redirectLink", "~" + link));
                     Server.Transfer("~/LoginPopup.aspx");
@@ -81,5 +81,43 @@ namespace OnlineCourierService.Parcel
             }
             DDLrbranch.Focus();
         }
+
+        protected void DDLPtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TogglePFood();
+            DDLPtype.Focus();
+        }
+        protected void DDLpackage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TogglePFood();
+            DDLpackage.Focus();
+        }
+
+
+        private void TogglePFood()
+        {
+            if (DDLPtype.SelectedValue == "CookedFood" || DDLPtype.SelectedValue == "DryFood") 
+            {
+                if (DDLpackage.SelectedIndex == 0)//&& !PFood.Visible
+                {
+                    PFood.Visible = true;
+                }
+                else if(DDLpackage.SelectedIndex == 1)//&& PFood.Visible
+                {
+                    PFood.Visible = false;
+                }
+            }
+            else if (DDLPtype.SelectedValue != "CookedFood" && DDLPtype.SelectedValue != "DryFood")
+            {
+                if (DDLpackage.SelectedIndex == 1)//&& PFood.Visible
+                {
+                    PFood.Visible = false;
+                }else if (DDLpackage.SelectedIndex == 0)//&& !PFood.Visible
+                {
+                    PFood.Visible = true;
+                }
+            }
+        }
+
     }
 }
