@@ -1,0 +1,103 @@
+﻿/********************************
+        Header area
+********************************/
+.head1 {
+    background-image: url("../img/reg.jpg");
+}
+
+.regform {
+    width: 100%;
+    /*background-color: rgba(255, 250, 230, 0.90);*/
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.info {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.action {
+    /*background-color: rgba(255, 250, 230, 0.90);*/
+    padding: 10px 150px;
+    margin: 10px;
+}
+
+.hero {
+    margin: 15px 5px 5px 5px;
+}
+
+.inputbox {
+    position: relative;
+    /*width: 90%;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.input {
+    border: 2px solid white;
+}
+
+.btn {
+    background-color: #1d9bee;
+}
+
+.cbtn {
+    background-color: #fb4848;
+}
+
+    .btn:focus, .btn:hover,
+    .cbtn:focus,
+    .cbtn:hover {
+        transform: scale(1.01);
+        box-shadow: 5px 5px 10px 0px rgba( 1, 1, 0, 0.60);
+    }
+
+.lable {
+    margin: 10px;
+}
+
+.val {
+    padding: 10px 150px;
+    /*background-color: rgba(255, 250, 230, 0.90);*/
+}
+
+.info__span {
+    padding: 1px 8px;
+    border-radius: 15px;
+    border: 1px solid #97c8e9;
+    background-color: whitesmoke;
+}
+.msg {
+    position: absolute;
+    width:300px;
+    left: 50%;
+    bottom:65%;
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid white;
+    background-color: rgba(141, 141, 141, 0.80);
+    transition: opacity 300ms ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+    .info__span:hover ~ .msg,
+    .msg:hover {
+        opacity: 1;
+        pointer-events: all;
+    }

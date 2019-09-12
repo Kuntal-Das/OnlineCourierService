@@ -1,0 +1,80 @@
+﻿.hero-text{
+    margin:15px;
+    text-align:left;
+    min-width:100%;
+}
+
+.content{
+    display:flex;
+    flex-direction:column;
+    padding:15px;
+    width:75vw;
+    justify-content:flex-start;
+}
+
+.ratesTable {
+    width: calc(100% - 30px);
+    margin: 15px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.ratesTable td,.ratesTable th{
+    border: 1px solid #ddd;
+    padding: 8px 0px;
+}
+
+.ratesTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+    transition:background-color 300ms ease;
+}
+
+.ratesTable tr:nth-child(odd) {
+    background-color: #ddd;
+    transition:background-color 300ms ease;
+}
+
+.ratesTable tr:hover {
+    background-color: rgb(156, 210, 241);
+}
+
+.ratesTable th{
+    padding: 12px 0px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.DisplayNone{
+    display:none;
+}
+
+.GVinput{
+    padding:10px;
+    text-align:center;
+    width:100px;
+    border-radius:3px;
+    border:2px solid white;
+    background-color:rgba(221, 221, 221, 0.60);
+    transition:border-color 300ms ease;
+}
+.GVinput:focus{
+    background-color:whitesmoke;
+    border:2px solid #2486e4;
+}
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight:600;
+    background-color: #1d9bee;
+    box-shadow: 0px 0px 0px 0px rgba( 0, 0, 0, 0.60);
+    transition: box-shadow 250ms ease,transform 250ms ease;
+}
+.btn:focus,
+.btn:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px 0px rgba( 1, 1, 0, 0.60);
+}

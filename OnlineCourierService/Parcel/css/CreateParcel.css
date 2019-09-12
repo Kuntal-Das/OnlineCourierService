@@ -1,0 +1,36 @@
+﻿.full__div, .half__div {
+    position: relative;
+    border: 2px solid #0094ff;
+    border-radius: 10px;
+    margin: 30px 10px 10px 10px;
+    padding: 30px 10px 10px 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    align-items: center;
+    grid-row-gap:10px;
+}
+.half__div{
+    display:flex;
+    flex-direction:column;
+}
+.hero__text {
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    color: #00508a;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.lable{
+    margin:5px 10px;
+}

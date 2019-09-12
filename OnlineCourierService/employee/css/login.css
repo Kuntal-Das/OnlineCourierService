@@ -1,0 +1,128 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    box-shadow:none;
+}
+
+*:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+body {
+    height: 100vh;
+    /*width:100vw;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+    background-image: url(../img/Prim.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logintab {
+    height: 425px;
+    width: 535px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 1px 3px 5px black;
+    background-image: linear-gradient( 108.1deg, rgba(97,169,210,1) 29.4%, rgba(65,87,134,1) 63.5% );
+}
+
+.wrapper {
+    width: 410px;
+    height: 160px;
+    position: relative;
+}
+
+.inputbox{
+    opacity: 1;
+    width:410px;
+    height:160px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items:center;
+    transition:opacity 300ms ease;
+}
+
+.next, .link {
+    width: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input {
+    border: none;
+    border-radius: 5px;
+    border: 2px solid white;
+    border-bottom: 2px solid grey;
+    padding: 10px;
+    width: 90%;
+    transition: transform 250ms ease-out, box-shadow 250ms ease;
+}
+
+.submit{
+    width:55px;
+    height:40px;
+    background:white;
+    font-weight:600;
+    border-radius:10px;
+    padding:7px 3px;
+} 
+.hide{
+    opacity:0;
+    pointer-events:none;
+    top: 0px;
+    left: 0px;
+}
+
+.link__a {
+    text-decoration:none;
+    color:black;
+}
+
+.link__a:hover,
+.link__a:focus{
+    text-decoration:underline;
+}
+
+.input:focus{
+    transform:scale(1.01);
+    box-shadow: 2px 2px 5px black;
+}
+.input:valid{
+    border:2px solid green !important;
+}
+
+.hero{
+    /*border:1px dashed grey;*/
+    width:410px;
+    height:125px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hero__img{
+    height:81px;
+    width:246px;
+}
+
+.error{
+    color:red;
+    font-weight:600;
+    background-color:white;
+    padding:10px;
+    border-radius:5px;
+}

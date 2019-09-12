@@ -1,0 +1,255 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="index.master.cs" Inherits="OnlineCourierService.index1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Lightning Corp.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86" />
+    <link rel="shortcut icon" href="lightning.ico">
+    <link href="css/index-master.css" rel="stylesheet" />
+    <script src="js/index-master.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <section class="page">
+            <div id="loaderImage" class="preloader">
+                <img id="loader" src="svg/index.scratching-reveal-loader.svg" alt="LOGO">
+            </div>
+            <asp:ContentPlaceHolder ID="CPHerrMsg" runat="server"></asp:ContentPlaceHolder>
+            <nav class="navi">
+                <asp:HyperLink ID="HyperLink21" CssClass="logo proj-logo" NavigateUrl="~/index.aspx" runat="server"></asp:HyperLink>
+                <ul class="menu">
+                    <li class="level1nav">
+                        <asp:HyperLink ID="HyperLink24" CssClass="level1nav__link t1" runat="server">Shipping&blacktriangledown;</asp:HyperLink>
+                        <ul class="dropdown UL1">
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink25" CssClass="level2nav__link" NavigateUrl="~/Parcel/CreateParcel.aspx" runat="server">Create a Shipment</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink1" CssClass="level2nav__link" NavigateUrl="~/Parcel/RateofParcel.aspx" runat="server">Shipping Rates</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink4" CssClass="level2nav__link" NavigateUrl="#" runat="server">Schedule & Manage Pickups</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink5" CssClass="level2nav__link" NavigateUrl="#" runat="server">Packaging & Shipping Supplies</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink6" CssClass="level2nav__link" NavigateUrl="#" runat="server">Returns</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink7" CssClass="level2nav__link" NavigateUrl="#" runat="server">Delivery Manager</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink8" CssClass="level2nav__link" NavigateUrl="#" runat="server">Learn More about Online Shipping</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink9" CssClass="level2nav__link" NavigateUrl="#" runat="server">All Shiping Services</asp:HyperLink>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="level1nav">
+                        <asp:HyperLink ID="HyperLink23" CssClass="level1nav__link t2" runat="server">Tracking&blacktriangledown;</asp:HyperLink>
+                        <ul class="dropdown UL2">
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink10" CssClass="level2nav__link" NavigateUrl="#" runat="server">Advance Shipment Tracking</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink11" CssClass="level2nav__link" NavigateUrl="#" runat="server">Obtain Proof of Delivery</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink12" CssClass="level2nav__link" NavigateUrl="#" runat="server">Track by Email</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink13" CssClass="level2nav__link" NavigateUrl="#" runat="server">Packaging & Shipping Supplies</asp:HyperLink>
+                            </li>
+                            <li class="level2nav"><a class="level2nav__link" href="#">All Tracking Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="level1nav">
+                        <asp:HyperLink ID="HyperLink22" CssClass="level1nav__link t3" runat="server">Support&blacktriangledown;</asp:HyperLink>
+                        <ul class="dropdown UL3">
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink14" CssClass="level2nav__link" NavigateUrl="#" runat="server">New Customer Center</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink15" CssClass="level2nav__link" NavigateUrl="#" runat="server">Small Business Center</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink16" CssClass="level2nav__link" NavigateUrl="#" runat="server">File a Claim</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink17" CssClass="level2nav__link" NavigateUrl="#" runat="server">View Bills Online</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink18" CssClass="level2nav__link" NavigateUrl="#" runat="server">Billing/Invoice Forms</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink19" CssClass="level2nav__link" NavigateUrl="#" runat="server">Custom Tools</asp:HyperLink>
+                            </li>
+                            <li class="level2nav">
+                                <asp:HyperLink ID="HyperLink20" CssClass="level2nav__link" NavigateUrl="#" runat="server">Goods and Services Tax(GST</asp:HyperLink>
+                            </li>
+                            <li class="level2nav"><a class="level2nav__link" href="#">Find Our Store Locations</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <asp:ContentPlaceHolder ID="CPHuser" runat="server"></asp:ContentPlaceHolder>
+            </nav>
+            <header class="head1">
+                <h1 class="head1__heading">
+                    <asp:ContentPlaceHolder ID="CPHheader" runat="server"></asp:ContentPlaceHolder>
+                </h1>
+            </header>
+            <div class="container">
+                <asp:ContentPlaceHolder ID="CPHcontent" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <footer class="foot">
+                <div class="foot__div about">
+                    <h3>About</h3>
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="HyperLink32" CssClass="foot__link" NavigateUrl="#" runat="server">About Us </asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink33" CssClass="foot__link" NavigateUrl="#" runat="server">Contact Us</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink34" CssClass="foot__link" NavigateUrl="#" runat="server">Our Store Locations</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <div class="foot__div help">
+                    <h3>Help</h3>
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="HyperLink35" CssClass="foot__link" NavigateUrl="#" runat="server">Payments</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink36" CssClass="foot__link" NavigateUrl="#" runat="server">Shipping</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink37" CssClass="foot__link" NavigateUrl="#" runat="server">International Holiday Schedule</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink38" CssClass="foot__link" NavigateUrl="#" runat="server">Cancellation</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink39" CssClass="foot__link" NavigateUrl="#" runat="server">FAQ</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink40" CssClass="foot__link" NavigateUrl="#" runat="server">Report Infringement</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <div class="foot__div policy">
+                    <h3>Policy</h3>
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="HyperLink41" CssClass="foot__link" NavigateUrl="#" runat="server">Cancellation Policy</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink42" CssClass="foot__link" NavigateUrl="#" runat="server">Terms of Service</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink43" CssClass="foot__link" NavigateUrl="#" runat="server">Security</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink44" CssClass="foot__link" NavigateUrl="#" runat="server">Privacy</asp:HyperLink>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink45" CssClass="foot__link" NavigateUrl="#" runat="server">Conditions Of Carriage</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <div class="foot__div region">
+                    <h3>Region: </h3>
+                    <select>
+                        <option value="India">India</option>
+                    </select>
+                </div>
+            </footer>
+            <div class="footer__bottom" id="bottom">
+                <div class="social">
+                    <span class="social__follow">Follow Us on : </span>
+                    <a href="#" class="social__link facebook-icon">
+                        <svg role="presentation"
+                            class="icon facebook--icon">
+                            <use xlink:href="#facebookicon" />
+                        </svg></a>
+                    <a href="#" class="social__link twitter-icon">
+                        <svg role="presentation"
+                            class="icon twitter--icon">
+                            <use xlink:href="#twittericon" />
+                        </svg></a>
+                    <a href="#" class="social__link linkedin-icon">
+                        <svg role="presentation"
+                            class="icon linkedin--icon">
+                            <use xlink:href="#linkedinicon" />
+                        </svg></a>
+                </div>
+                <div class="bottom">
+                    <a href="#" class="bottom__link">Sitemap</a> <span>&copy;2019 - 2021 Lightning Corp.</span>
+                </div>
+            </div>
+        </section>
+        <svg display="none">
+            <symbol id="facebookicon" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path fill="currentColor"
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+            </symbol>
+            <symbol id="twittericon" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+            </symbol>
+            <symbol id="linkedinicon" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor"
+                    d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+            </symbol>
+        </svg>
+        <script src="js/libraries/TweenMax.min.js"></script>
+        <script src="js/libraries/jquery-3.4.1.min.js"></script>
+        <script>
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        </script>
+    </form>
+</body>
+</html>

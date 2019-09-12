@@ -1,0 +1,165 @@
+﻿<%@ Page Title="Create Parcel" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="CreateParcel.aspx.cs" Inherits="OnlineCourierService.Parcel.CreateParcel" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/CreateParcel.css" rel="stylesheet" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="CPHerrMsg" runat="server">
+    <asp:Panel ID="PError" runat="server" CssClass="PError">
+        <div class="cross"></div>
+        <asp:Label ID="Lerr" runat="server" Text="" CssClass="Lerr"></asp:Label>
+        <script>
+            document.querySelector(".cross").addEventListener("click", _ => {
+                document.querySelector(".PError").style.opacity = 0;
+                document.querySelector(".PError").style.pointerEvents = "none";
+            });
+        </script>
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="CPHuser" runat="server">
+    <asp:LinkButton ID="LoginSignIn" CssClass="login" runat="server" CausesValidation="false" OnClick="LoginSignIn_Click">
+        <span></span><span></span><span></span><span></span>
+        Sign Up or Login <svg role="presentation" class="icon user--icon"><use xlink:href="#usericon" /></svg>
+    </asp:LinkButton>
+    <asp:Panel ID="Puser" CssClass="account" runat="server" Visible="false" OnClick="toogleUserontrol();">
+        <asp:Panel ID="ProundedDP" CssClass="userDP" runat="server"></asp:Panel>
+        <asp:Label ID="Aname" CssClass="user" runat="server" Text="Employee"></asp:Label>
+        <ul class="usercontrol hidden">
+            <li class="l2__nav">
+                <asp:HyperLink CssClass="l2__link" ID="profile" runat="server" NavigateUrl="~/Profile.aspx">My Profile</asp:HyperLink>
+            </li>
+            <li class="l2__nav">
+                <asp:LinkButton ID="signout" CausesValidation="false" CssClass="l2__link" runat="server" OnClick="Logout">Log Out</asp:LinkButton>
+            </li>
+        </ul>
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="CPHheader" runat="server">
+    Make New Shipment / Parcel 
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
+    <div class="full__div grid">
+        <h3 class="hero__text">Parcel Info.</h3>
+        <div class="inputbox">
+            <asp:Label ID="LPtype" runat="server" Text="Select Parcel Type :"></asp:Label>
+            <asp:DropDownList ID="DDLPtype" runat="server" CssClass="ddl">
+                <asp:ListItem Selected="True" Value="-1">Select Parcel Type</asp:ListItem>
+                <asp:ListItem>Basic</asp:ListItem>
+                <asp:ListItem>Business</asp:ListItem>
+                <asp:ListItem Value="DryFood">Dry Food</asp:ListItem>
+                <asp:ListItem Value="CookedFood">Cooked Food</asp:ListItem>
+                <asp:ListItem>Gift</asp:ListItem>
+                <asp:ListItem>Electronics</asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RFVPtype" runat="server" ErrorMessage="Parcel Type is Required" ControlToValidate="DDLPtype" ForeColor="Red"
+                Text="*" Display="Dynamic" SetFocusOnError="true" InitialValue="-1"></asp:RequiredFieldValidator>
+        </div>
+        <div class="inputbox">
+            <asp:Label ID="Label1" runat="server" Text="Select Parcel Type :"></asp:Label>
+            <asp:DropDownList ID="DDLPaymentM" runat="server" CssClass="ddl">
+                <asp:ListItem Value="-1">Select Payment Method</asp:ListItem>
+                <asp:ListItem>Pay Online</asp:ListItem>
+                <asp:ListItem>Pay On PickUp</asp:ListItem>
+                <asp:ListItem>Pay in Branch</asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RFVPaymentM" runat="server" ErrorMessage="Parcel Type is Required" ControlToValidate="DDLPaymentM" ForeColor="Red"
+                Text="*" Display="Dynamic" SetFocusOnError="true" InitialValue="-1"></asp:RequiredFieldValidator>
+        </div>
+        <div class="inputbox">
+            <asp:TextBox ID="TBPweight" CssClass="input" runat="server" autocomplete="off" required=""></asp:TextBox>
+            <span class="floating-placeholder">approx Parcel Weight(in Kg)</span>
+        </div>
+    </div>
+    <asp:ObjectDataSource ID="OBSReg" runat="server" SelectMethod="GetRegionWithRegBranchID" TypeName="OnlineCourierService.employee.Classes.DataAccessLayer"></asp:ObjectDataSource>
+
+    <div class="grid">
+        <div class="half__div">
+            <h3 class="hero__text">Sender's Info.</h3>
+            <div class="inputbox">
+                <asp:TextBox ID="TBsName" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Sender's Full Name</span>
+                <asp:RequiredFieldValidator ID="RFVsName" ControlToValidate="TBsName" runat="server" ErrorMessage="Sender's Name is Reqired"
+                    Display="Dynamic" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+            </div>
+            <div class="inputbox">
+                <asp:TextBox ID="TBsEmail" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Sender's Email Address</span>
+                <asp:RequiredFieldValidator ID="RFVsCID" ControlToValidate="TBsEmail" runat="server" ErrorMessage="Sender's Name is Reqired"
+                    Display="Dynamic" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+            </div>
+            <div class="inputbox">
+                <asp:TextBox ID="TBsAddr" TextMode="MultiLine" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Sender's Postal Address</span>
+            </div>
+            <div class="inputbox">
+                <asp:Label ID="LsReg" CssClass="lable" runat="server" Text="Select Sender's Region :"></asp:Label>
+                <asp:DropDownList ID="DDLsReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name" 
+                    DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DDLsReg_SelectedIndexChanged"></asp:DropDownList>
+            </div>
+            <div class="inputbox">
+                <asp:Label ID="Lsbranch" CssClass="lable" runat="server" Text="Select Sender's Nearby Branch :"></asp:Label>
+                <asp:DropDownList ID="DDLsbranch" CssClass="ddl" runat="server">
+                    <asp:ListItem Value="-1">Select Branch</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="half__div">
+            <h3 class="hero__text">Receiver's Info.</h3>
+            <div class="inputbox">
+                <asp:TextBox ID="TBrName" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">receiver's Full Name</span>
+                <asp:RequiredFieldValidator ID="RFVrName" ControlToValidate="TBrName" runat="server" ErrorMessage="Sender's Name is Reqired"
+                    Display="Dynamic" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+            </div>
+            <div class="inputbox">
+                <asp:TextBox ID="TBrEmail" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Receiver's Email Address</span>
+                <asp:RequiredFieldValidator ID="RFVrEmail" ControlToValidate="TBrEmail" runat="server" ErrorMessage="Sender's Name is Reqired"
+                    Display="Dynamic" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+            </div>
+            <div class="inputbox">
+                <asp:TextBox ID="TBrAddr" TextMode="MultiLine" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Receiver's Postal Address</span>
+            </div>
+            <div class="inputbox">
+                <asp:Label ID="LrReg" CssClass="lable" runat="server" Text="Select Receiver's Region :"></asp:Label>
+                <asp:DropDownList ID="DDLrReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name" DataValueField="ID" 
+                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+            </div>
+            <div class="inputbox">
+                <asp:Label ID="LrBranch" CssClass="lable" runat="server" Text="Select Receiver's Nearby Branch :"></asp:Label>
+                <asp:DropDownList ID="DDLrbranch" CssClass="ddl" runat="server">
+                    <asp:ListItem Value="-1">Select Branch</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="full__div">
+            <h3 class="hero__text">Packing Info.</h3>
+
+        </div>
+        <asp:Panel ID="PFood" CssClass="full__div" runat="server">
+            <h3 class="hero__text">Cooked/Dry Food</h3>
+
+        </asp:Panel>
+    </div>
+    <div class="full__div">
+        <h3 class="hero__text">Submit</h3>
+
+
+    </div>
+    <svg display="none">
+        <symbol id="usericon" role="presentation" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 194 194">
+            <path class="border"
+                d="M97 13a84 84 0 1 1-84 84 84.09513 84.09513 0 0 1 84-84m0-13a97 97 0 1 0 97 97A97 97 0 0 0 97 0z" />
+            <circle class="head" cx="97" cy="65" r="33" />
+            <path class="body"
+                d="M43 142c-8.44147-9.10907-8.31122-14.73462-8-17 .83569-6.08286 6.0473-10.29041 12.5-15.5a70.56271 70.56271 0 0 1 12.00311-7.8181 6.82759 6.82759 0 0 1 6.52424.17143 60.95361 60.95361 0 0 0 60.67427.158 6.83155 6.83155 0 0 1 6.92674.11175A131.12246 131.12246 0 0 1 144.5 109.5c8.96344 6.76105 13.46625 10.24872 14.5 15.5 1.34631 6.83887-3.77936 13.1456-7 17-10.00458 11.9733-28 24-50 24-28.77063 0-49.63916-13.89883-59-24z" />
+        </symbol>
+    </svg>
+</asp:Content>

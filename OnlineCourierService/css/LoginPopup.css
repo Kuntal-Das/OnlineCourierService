@@ -1,0 +1,195 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: none;
+}
+
+body {
+    background-image: url("../svg/background/hero.svg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    /*height:100vh;*/
+}
+
+.page {
+    position: relative;
+}
+
+.PError {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 90vw;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 30px 20px 20px;
+    margin: 0px 20px;
+    border: 2px solid red;
+    background-color: rgba(245, 245, 245, 0.95);
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 300ms ease;
+}
+
+.Lerr {
+    color: black;
+    font-weight: bolder;
+}
+
+.cross {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-color: red;
+    border-radius: 50%;
+}
+
+    .cross:after {
+        position: absolute;
+        box-sizing: border-box;
+        top: 7px;
+        right: 4px;
+        content: "";
+        height: 1px;
+        width: 7px;
+        background-color: white;
+    }
+
+.navigation {
+    position: sticky;
+    color: white;
+    top: 0;
+    height: calc(4rem + 1px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/*logo in the nav bar*/
+.logo {
+    background-image: url("../svg/project_logo.svg");
+    transition: transform 200ms ease-out;
+    margin-left: 2rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: calc(4rem - 10px);
+    width: 220px;
+}
+
+    .logo:hover, .logo:focus {
+        transform: scale(1.02);
+    }
+
+.btn,.cbtn {
+    text-decoration: none;
+    text-align:center;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0px 0px 0px 0px rgba( 0, 0, 0, 0.60);
+    transition: box-shadow 250ms ease,transform 250ms ease;
+}
+.btn {
+    background-color: #1d9bee;
+}
+.cbtn{
+    background-color: #ff6767;
+}
+    .btn:focus, .btn:hover,
+    .cbtn:focus, .cbtn:hover {
+        transform: scale(1.01);
+        box-shadow: 5px 5px 10px 0px rgba( 1, 1, 0, 0.60);
+    }
+.container {
+    height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logintab {
+    display: flex;
+    flex: 0 0 350px;
+    padding: 25px 35px;
+    border-radius: 4px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+    .logintab .link {
+        padding-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logintab .link_a {
+        text-decoration: none;
+        color: black;
+        white-space: nowrap;
+    }
+/**************************************************************
+input type text password floating-laceholder & submit
+***************************************************************/
+.input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    font-size: 18px;
+    margin: 2.5px;
+    padding: 25px 5px 3px 5px;
+    background: #f2f2f2;
+    border-left: 3px solid #f2f2f2;
+    transition: 150ms ease;
+}
+
+    .input:focus {
+        font-size: 18px;
+        border-left: 3px solid black;
+    }
+
+.floating-placeholder {
+    top: 35%;
+    left: 5%;
+    color: #c8c8c8;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    text-shadow: none;
+    pointer-events: none !important;
+    text-transform: capitalize;
+    transition: top 500ms ease, color 500ms ease, font-size 500ms ease !important;
+}
+
+.inputbox {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+    .inputbox input:focus ~ .floating-placeholder {
+        color: #2bd2ff;
+    }
+
+    .inputbox input:focus ~ .floating-placeholder,
+    .inputbox input:valid ~ .floating-placeholder {
+        top: 10%;
+        font-size: 12px;
+    }

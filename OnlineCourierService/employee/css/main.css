@@ -1,0 +1,309 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: none;
+}
+
+body {
+    background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+    background-image: url("../img/Prim.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.page {
+    position: relative;
+}
+/*nav bar*/
+.navigation {
+    position: sticky;
+    color: white;
+    top: 0;
+    height: calc(4rem + 1px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.55);
+    /*background-color: #7082e8;*/
+    background-image:url("../img/Prim.jpg");
+    background-position:top;
+    background-size:cover;
+    z-index:5;
+}
+/*logo in the nav bar*/
+.logo {
+    background-image: url("../svg/project_logo.svg");
+    transition: transform 200ms ease-out;
+    margin-left: 2rem;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: calc(4rem - 10px);
+    width: 220px;
+}
+
+.logo:hover, .logo:focus {
+    transform: scale(1.02);
+}
+
+.account {
+    height: 50px;
+    padding-left: 40px;
+    position: relative;
+    margin-right: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* where admin name will appear*/
+.admin {
+    padding: 10px 10px 10px 30px;
+    background-color: whitesmoke;
+    margin-left: -20px;
+    color: transparent;
+    border-radius: 0px 10px 10px 0px;
+    z-index: 0;
+    cursor: pointer;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 300ms ease 0ms, color 100ms ease-in-out 200ms;
+}
+/* where admin pic will appear*/
+.adminDP {
+    /*clip-path: circle(25px at center);*/
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: url("../img/dp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    z-index: 1;
+    right: 0%;
+    transition: right 300ms ease;
+}
+
+.account:hover .admin,
+.account.appear .admin,
+.admin:hover,
+.dropdown:hover ~ .admin {
+    transform: scaleX(1);
+    color: black;
+}
+
+.account:hover .adminDP,
+.account.appear .adminDP {
+    right: calc(100% - 40px);
+}
+
+.dropdown {
+    /*border:1px dotted black;*/
+    position: absolute;
+    top: calc(3rem - 3px);
+    right: 0;
+    border-radius: 0px 3px 3px 3px;
+    list-style: none;
+    background-color: whitesmoke;
+    box-shadow: 6px 3px 7px #0e0e0e73;
+    z-index: -1;
+    opacity: 1;
+    transition: 300ms opacity ease;
+}
+
+.l2__nav {
+    padding: 0px;
+    margin: 0px;
+    opacity: 1;
+    transition: 50ms opacity ease 200ms;
+}
+
+.l2__link {
+    display: block;
+    position: relative;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+}
+
+.l2__link:hover {
+    background-color: #6fb6ec;
+}
+
+.dropdown.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dropdown.hidden > .l2__nav {
+    opacity: 0;
+    transition-delay: 0ms;
+}
+
+.flex-container{
+    position:relative;
+    min-height:calc(100vh - 4em - 39px);
+    max-height:max-content;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container {
+    width:90%;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit,minmax(14em,1fr));
+}
+
+.card {
+    position:relative;
+    /*grid-area:card;*/
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.15);
+    margin: 10px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow:hidden;
+    transition:transform 300ms ease;
+}
+
+.card__index{
+    width:2em;
+    height:2em;
+    color: #06173c;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2em;
+    font-weight:700;
+    box-shadow: 0 0 0 0 #b6ff00;
+    transition: box-shadow 500ms ease;
+}
+
+.card__head{
+    text-align:center;
+    font-size:1.3em;
+    margin:10px 0px;
+}
+
+.card__text {
+    z-index: 1;
+    text-align: center;
+    transition: color 100ms ease-out 0ms;
+}
+
+.card__button{
+    cursor:pointer;
+    padding:10px 20px;
+    margin:10px 0px 0px 0px;
+    background-color:white;
+    text-decoration:none;
+    color:black;
+    font-weight:600;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
+    border-radius:5px;
+    z-index:1;
+}
+
+.card:hover,
+.card:focus {
+    transform: scale3d(1.05,1.05,1);
+}
+
+.card:hover .card__text {
+    color: white;
+    transition-delay:150ms
+}
+
+.card:nth-child(4n+3) .card__index{
+    box-shadow: 0 0 0 0 #b6ff00;
+    background-color: #b6ff00;
+}
+
+.card:nth-child(4n+3):hover .card__index {
+    box-shadow: 0 0 0 25rem #96cb12;
+}
+
+.card:nth-child(4n+2) .card__index {
+    box-shadow: 0 0 0 0 #2196f3;
+    background-color: #2196f3;
+}
+
+.card:nth-child(4n+2):hover .card__index {
+    box-shadow: 0 0 0 25rem #227fca;
+}
+
+.card:nth-child(4n+1) .card__index {
+    box-shadow: 0 0 0 0 #23e629;
+    background-color: #23e629;
+}
+
+.card:nth-child(4n+1):hover .card__index {
+    box-shadow: 0 0 0 25rem #20c225;
+}
+
+.card:nth-child(4n) .card__index {
+    box-shadow: 0 0 0 0 #f32169;
+    background-color: #f32169;
+}
+
+.card:nth-child(4n):hover .card__index {
+    box-shadow: 0 0 0 25rem #d71b5b;
+}
+
+
+/*footer and its components*/
+.footer {
+    background-color: #06173c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.footer__div{
+    width:max-content;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+}
+
+.footer__link,
+.footer__span {
+    padding: 5px;
+    margin: 5px;
+}
+
+.footer__link{
+    color:white;
+    padding-right:10px;
+    text-decoration:none;
+    border-right:2px solid white;
+}
+.footer__link:hover{
+    text-decoration:underline;
+}
+
+.ddl{
+    height:2rem;
+    border-radius:3px;
+    background-color:transparent;
+    color:white;
+    border:2px solid white;
+}
