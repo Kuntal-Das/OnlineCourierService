@@ -42,10 +42,11 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
     <asp:HiddenField ID="HFSender" runat="server" />
+
     <asp:Panel ID="Psender" CssClass="overylay" runat="server" Visible="true">
         <div class="overylay__content">
             <p>
-                Do You know the Receiver have an Account on our website, if so kindly provide his/her Email address.<br/>
+                Do You know the Receiver have an Account on our website, if so kindly provide his/her Email address.<br />
                 it will be used to fill up Receiver's data from our server
             </p>
             <div class="inputbox">
@@ -81,7 +82,7 @@
             <asp:Label ID="Label1" runat="server" Text="Select Payment Method :"></asp:Label>
             <asp:DropDownList ID="DDLPaymentM" runat="server" CssClass="ddl">
                 <asp:ListItem Value="-1">Select Payment Method</asp:ListItem>
-                <asp:ListItem>Pay Online</asp:ListItem>
+                <%--<asp:ListItem>Pay Online</asp:ListItem>--%>
                 <asp:ListItem>Pay On PickUp</asp:ListItem>
                 <asp:ListItem>Pay in Branch</asp:ListItem>
             </asp:DropDownList>
@@ -89,23 +90,61 @@
                 Text="*" Display="Dynamic" SetFocusOnError="true" InitialValue="-1"></asp:RequiredFieldValidator>
             <span class="info">i</span>
             <span class="msg">Your Payment Method Declares How You want do send Your Parcel<br />
-                <ul style="margin-left:10px;">
-                    <li>For &quot;online Payment&quot; Or &quot;Pay on Pickup&quot; parcel will be picked up from yuor Home Address,</li>
-                    <li>But for &quot;Pay in Branch&quot; option You need to Carr your Parcel to Branch while to make the payment</li>
+                <ul style="margin-left: 10px;">
+                    <li>For &quot;Pay on Pickup&quot; parcel will be picked up from your Home Address,</li>
+                    <li>But for &quot;Pay in Branch&quot; option You need to Carry your Parcel to Branch while you go to make the payment</li>
                 </ul>
             </span>
         </div>
         <div class="inputbox">
             <asp:TextBox ID="TBPweight" CssClass="input" runat="server" autocomplete="off" required=""></asp:TextBox>
             <span class="floating-placeholder">approx Parcel Weight(in Kg)</span>
-            <asp:RequiredFieldValidator ID="RFVpWeight" runat="server" ErrorMessage="Weight is Required" SetFocusOnError="True" ControlToValidate="TBPweight" 
+            <asp:RequiredFieldValidator ID="RFVpWeight" runat="server" ErrorMessage="Weight is Required" SetFocusOnError="True" ControlToValidate="TBPweight"
                 Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CVweight" runat="server" ErrorMessage="weight must be in Decimal" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red" 
+            <asp:CompareValidator ID="CVweight" runat="server" ErrorMessage="weight must be in Decimal" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red"
                 Operator="DataTypeCheck" SetFocusOnError="True" Type="Double">*</asp:CompareValidator>
-            <asp:RangeValidator ID="RVweight" runat="server" ErrorMessage="weight must be between 1-100" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red" 
-                MaximumValue="100" MinimumValue="1" SetFocusOnError="True" type="Double">*</asp:RangeValidator>
+            <asp:RangeValidator ID="RVweight" runat="server" ErrorMessage="weight must be between 1-100" ControlToValidate="TBPweight" Display="Dynamic" ForeColor="Red"
+                MaximumValue="100" MinimumValue="1" SetFocusOnError="True" Type="Double">*</asp:RangeValidator>
 
         </div>
+    </div>
+    <div class="grid">
+        <div class="full__div">
+            <h3 class="hero__text">Packing Info.</h3>
+            We can Take care of your Packaging Or else You can do it yourself.<br />
+            <br />
+            <div class="inputbox">
+                <asp:DropDownList ID="DDLpackage" CssClass="ddl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDLpackage_SelectedIndexChanged">
+                    <asp:ListItem Value="0">Packaging Managed by Us</asp:ListItem>
+                    <asp:ListItem Value="1">Packaging Managed by Customer</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <br />
+            <b>Note:</b> Personal Account Holders will be charged Extra Upto Rs.250 (According to the ammount of parcel).
+            For cooked/Dry food an exta charge may will be applied for packging provided by Us(if the packaging cost exceeds normal limit)<br />
+            <br />
+            Business account holders will not be charged Extra for Packaging provided by Us.<br />
+        </div>
+        <asp:Panel ID="PFood" CssClass="full__div" runat="server" Visible="false">
+            <h3 class="hero__text">Cooked/Dry Food</h3>
+            For sending Cooked/Dry food we preffer to Package it ourself so that the food quality remains intact and for that we need to know 
+            some basic info. about your parcel to provide our best service at your door.<br />
+            <br />
+            <div class="inputbox">
+                <asp:TextBox ID="TBfood" CssClass="input" runat="server" required=""></asp:TextBox>
+                <span class="floating-placeholder">Enter how many container you Need</span>
+                <asp:RequiredFieldValidator ID="RFVContainer" runat="server" ErrorMessage="Containers No. is Required" SetFocusOnError="True" ControlToValidate="TBfood"
+                    Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CVContainer" runat="server" ErrorMessage="Containers No. be in Integer" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red"
+                    Operator="DataTypeCheck" SetFocusOnError="True" Type="Integer">*</asp:CompareValidator>
+                <asp:RangeValidator ID="RVContainer" runat="server" ErrorMessage="Containers No. must be between 1-10" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red"
+                    MaximumValue="10" MinimumValue="1" SetFocusOnError="True" Type="Integer">*</asp:RangeValidator>
+
+            </div>
+            <br />
+            <br />
+            <br />
+        </asp:Panel>
     </div>
     <asp:ObjectDataSource ID="OBSReg" runat="server" SelectMethod="GetRegionWithRegBranchID" TypeName="OnlineCourierService.employee.Classes.DataAccessLayer"></asp:ObjectDataSource>
 
@@ -129,7 +168,7 @@
             <div class="inputbox">
                 <asp:TextBox ID="TBsAddr" TextMode="MultiLine" CssClass="input" runat="server" required=""></asp:TextBox>
                 <span class="floating-placeholder">Sender's Postal Address</span>
-                <asp:RequiredFieldValidator ID="RFVsAddr" runat="server" ErrorMessage="Sender's Address is Required" ControlToValidate="TBsAddr" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVsAddr" runat="server" ErrorMessage="Sender's Address is Required" ControlToValidate="TBsAddr" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputbox">
@@ -137,7 +176,7 @@
                 <asp:DropDownList ID="DDLsReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name"
                     DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DDLsReg_SelectedIndexChanged">
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RFVsReg" runat="server" ErrorMessage="Sender's Region is Required" ControlToValidate="DDLsReg" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVsReg" runat="server" ErrorMessage="Sender's Region is Required" ControlToValidate="DDLsReg" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True" InitialValue="-1">*</asp:RequiredFieldValidator>
 
             </div>
@@ -146,7 +185,7 @@
                 <asp:DropDownList ID="DDLsbranch" CssClass="ddl" runat="server">
                     <asp:ListItem Value="-1">Select Branch</asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RFVsBranch" runat="server" ErrorMessage="Sender's Nearby Branch is Required" ControlToValidate="DDLsbranch" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVsBranch" runat="server" ErrorMessage="Sender's Nearby Branch is Required" ControlToValidate="DDLsbranch" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True" InitialValue="-1">*</asp:RequiredFieldValidator>
             </div>
         </div>
@@ -169,7 +208,7 @@
             <div class="inputbox">
                 <asp:TextBox ID="TBrAddr" TextMode="MultiLine" CssClass="input" runat="server" required=""></asp:TextBox>
                 <span class="floating-placeholder">Receiver's Postal Address</span>
-                <asp:RequiredFieldValidator ID="RFVrAddr" runat="server" ErrorMessage="Receiver's Address is Required" ControlToValidate="TBrAddr" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVrAddr" runat="server" ErrorMessage="Receiver's Address is Required" ControlToValidate="TBrAddr" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputbox">
@@ -177,7 +216,7 @@
                 <asp:DropDownList ID="DDLrReg" CssClass="ddl" runat="server" DataSourceID="OBSReg" DataTextField="Name" DataValueField="ID"
                     OnSelectedIndexChanged="DDLrReg_SelectedIndexChanged" AutoPostBack="True">
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RFVrReg" runat="server" ErrorMessage="Receiver's Region is Required" ControlToValidate="DDLrReg" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVrReg" runat="server" ErrorMessage="Receiver's Region is Required" ControlToValidate="DDLrReg" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True" InitialValue="-1">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputbox">
@@ -185,53 +224,15 @@
                 <asp:DropDownList ID="DDLrbranch" CssClass="ddl" runat="server">
                     <asp:ListItem Value="-1">Select Branch</asp:ListItem>
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="RFVrbranch" runat="server" ErrorMessage="Receiver's Nearby Branch is Required" ControlToValidate="DDLrbranch" Display="Dynamic" 
+                <asp:RequiredFieldValidator ID="RFVrbranch" runat="server" ErrorMessage="Receiver's Nearby Branch is Required" ControlToValidate="DDLrbranch" Display="Dynamic"
                     ForeColor="Red" SetFocusOnError="True" InitialValue="-1">*</asp:RequiredFieldValidator>
             </div>
         </div>
     </div>
-    <div class="grid">
-        <div class="full__div">
-            <h3 class="hero__text">Packing Info.</h3>
-            We can Take care of your Packaging Or else You can do it yourself.<br />
-            <br />
-            <div class="inputbox">
-                <asp:DropDownList ID="DDLpackage" CssClass="ddl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDLpackage_SelectedIndexChanged">
-                    <asp:ListItem>Packaging Managed by Us</asp:ListItem>
-                    <asp:ListItem>Packaging Managed by Customer</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-            <br />
-            <b>Note:</b> Personal Account Holders will be charged Extra Upto Rs.250 (According to the ammount of parcel).
-            For cooked/Dry food an exta charge may will be applied for packging provided by Us(if the packaging cost exceeds normal limit)<br />
-            <br />
-            Business account holders will not be charged Extra for Packaging provided by Us.<br />
-        </div>
-        <asp:Panel ID="PFood" CssClass="full__div" runat="server" Visible="false">
-            <h3 class="hero__text">Cooked/Dry Food</h3>
-            For sending Cooked/Dry food we preffer to Package it ourself so that the food quality remains intact and for that we need to know 
-            some basic info. about your parcel to provide our best service at your door.<br />
-            <br />
-            <div class="inputbox">
-                <asp:TextBox ID="TBfood" CssClass="input" runat="server" required=""></asp:TextBox>
-                <span class="floating-placeholder">Enter how many container you Need</span>
-                <asp:RequiredFieldValidator ID="RFVContainer" runat="server" ErrorMessage="Containers No. is Required" SetFocusOnError="True" ControlToValidate="TBfood" 
-                Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CVContainer" runat="server" ErrorMessage="Containers No. be in Integer" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
-                Operator="DataTypeCheck" SetFocusOnError="True" Type="Integer">*</asp:CompareValidator>
-            <asp:RangeValidator ID="RVContainer" runat="server" ErrorMessage="Containers No. must be between 1-10" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red" 
-                MaximumValue="10" MinimumValue="1" SetFocusOnError="True" type="Integer">*</asp:RangeValidator>
-
-            </div>
-            <br />
-            <br />
-            <br />
-        </asp:Panel>
-    </div>
-    <asp:ValidationSummary ID="VSparcel" ForeColor="Red" DisplayMode="List" runat="server" style="margin:10px 20px"/>
+    <asp:ValidationSummary ID="VSparcel" ForeColor="Red" DisplayMode="List" runat="server" Style="margin: 10px 20px" />
     <div class="full__div">
         <h3 class="hero__text">Place Pickup Request/Send Package </h3>
-        <asp:Button ID="Bsubmit" CssClass="btn" runat="server" Text="Place Requet" />
+        <asp:Button ID="Bsubmit" CssClass="btn" runat="server" Text="Place Request" OnClick="Bsubmit_Click" />
         <asp:LinkButton ID="LBcancel" CssClass="cbtn" runat="server">Cancel</asp:LinkButton>
     </div>
     <svg display="none">

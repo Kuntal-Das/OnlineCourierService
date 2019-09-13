@@ -232,7 +232,7 @@
       <DependentUpon>changePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Class\Customer.cs" />
-    <Compile Include="Class\Parcel.cs" />
+    <Compile Include="Class\Package.cs" />
     <Compile Include="Class\Password.cs" />
     <Compile Include="employee\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>

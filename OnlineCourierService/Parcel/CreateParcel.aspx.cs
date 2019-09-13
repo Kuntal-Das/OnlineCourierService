@@ -152,8 +152,16 @@ namespace OnlineCourierService.Parcel
             if (TBORemail.Text != null)
             {
                 string Recemail = TBORemail.Text.Trim();
-                Customer cus = new Customer(Session["LightCus"].ToString(), true);
-                cus.FillData();
+                Customer cus = null;
+                if (Session["LightCus"] != null)
+                {
+                    cus = new Customer(Session["LightCus"].ToString(), true);
+                    cus.FillData();
+                }
+                else
+                {
+                    Server.Transfer("~/Parcel/CreateParcel.aspx");
+                }
                 if (cus.email.Equals(Recemail))
                 {
                     Notifyuser("Do not Enter Your Email Address !", false);
@@ -204,8 +212,50 @@ namespace OnlineCourierService.Parcel
             DDLrbranch.SelectedValue = rec.BID.ToString();
         }
 
+        protected void Bsubmit_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                string parcelType = DDLPtype.SelectedValue;
+                string paymentMethod = DDLPaymentM.SelectedValue;
+                double weight = Convert.ToDouble(TBPweight.Text.Trim());
+                SenderReceiver Sender, Receiver;
+                if (Session["LightCus"] != null)
+                {
+                    Sender = new SenderReceiver(Session["LightCus"].ToString(), TBsName.Text.Trim(), TBsEmail.Text.Trim(), TBsAddr.Text.Trim());
+                }
+                else
+                {
+                    Sender = new SenderReceiver("-1", TBsName.Text.Trim(), TBsEmail.Text.Trim(), TBsAddr.Text.Trim());
+                }
+                Receiver = new SenderReceiver("-1", TBrName.Text.Trim(), TBrEmail.Text.Trim(), TBrAddr.Text.Trim());
 
+                long sBID = Convert.ToInt64(DDLsbranch.SelectedValue);
+                long sRID = Convert.ToInt64(DDLsReg.SelectedValue);
 
+                long rBID = Convert.ToInt64(DDLrbranch.SelectedValue);
+                long rRID = Convert.ToInt64(DDLrReg.SelectedValue);
 
+                int PackagingByCustomer = Convert.ToInt32(DDLpackage.SelectedValue);
+                int container = -1;
+                if (DDLPtype.SelectedIndex == 3 || DDLPtype.SelectedIndex == 4)
+                {
+                    container = Convert.ToInt32(TBfood.Text.Trim());
+                }
+                Package p = new Package(parcelType, weight, Sender, Receiver, sBID, rBID, sRID, rRID, 0, 0, paymentMethod, "Pending", PackagingByCustomer,container);
+                string plid = p.insertPackage();
+                if (plid == null)
+                {
+                    Notifyuser("Parcel Request Creation Failed! Try Again Later", false);
+                    return;
+                }
+                Notifyuser("Parcel Request Placed Successfully with ID: \"" + plid + "\" Note it Down if Your are Not a Registered User", true);
+            }
+            else
+            {
+                Notifyuser("Validation Error, Data Not Saved", false);
+                return;
+            }
+        }
     }
 }

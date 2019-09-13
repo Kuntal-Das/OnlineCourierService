@@ -27,17 +27,19 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
-    <h3 class="hero-text">Rates Chart(in Rupees per KM) According to Parcel Type and Weight(in KG)</h3>
+    <h3 class="hero-text">
+        Rates Chart(in Rupees per KM) According to Parcel Type and Weight(in KG)
+    </h3>
     <asp:ObjectDataSource ID="OBSPrates" runat="server" SelectMethod="GetRates" TypeName="OnlineCourierService.employee.Classes.DataAccessLayer"></asp:ObjectDataSource>
     <asp:GridView ID="GVRates" runat="server" AutoGenerateColumns="False" DataSourceID="OBSPrates" CssClass="ratesTable">
         <Columns>
             <asp:BoundField DataField="Weight" HeaderText="Weight" SortExpression="Weight" />
-            <asp:BoundField DataField="Basic" HeaderText="Basic" SortExpression="Basic" />
-            <asp:BoundField DataField="Business" HeaderText="Business" SortExpression="Business" />
-            <asp:BoundField DataField="DryFood" HeaderText="Dry Food" SortExpression="DryFood" />
-            <asp:BoundField DataField="CookedFood" HeaderText="Cooked Food" SortExpression="CookedFood" />
-            <asp:BoundField DataField="Gift" HeaderText="Gift" SortExpression="Gift" />
-            <asp:BoundField DataField="Electronics" HeaderText="Electronics" SortExpression="Electronics" />
+            <asp:BoundField DataField="Basic" HeaderText="Basic" SortExpression="Basic" DataFormatString="{0:c}" />
+            <asp:BoundField DataField="Business" HeaderText="Business" SortExpression="Business" DataFormatString="{0:c}"/>
+            <asp:BoundField DataField="DryFood" HeaderText="Dry Food" SortExpression="DryFood" DataFormatString="{0:c}"/>
+            <asp:BoundField DataField="CookedFood" HeaderText="Cooked Food" SortExpression="CookedFood" DataFormatString="{0:c}"/>
+            <asp:BoundField DataField="Gift" HeaderText="Gift" SortExpression="Gift" DataFormatString="{0:c}"/>
+            <asp:BoundField DataField="Electronics" HeaderText="Electronics" SortExpression="Electronics" DataFormatString="{0:c}"/>
         </Columns>
     </asp:GridView>
 </asp:Content>
