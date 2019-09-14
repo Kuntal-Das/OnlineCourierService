@@ -201,7 +201,10 @@
     <Content Include="Parcel\CreateParcel.aspx" />
     <Content Include="Parcel\css\CreateParcel.css" />
     <Content Include="Parcel\css\RateofParcel.css" />
+    <Content Include="Parcel\css\SrcParcel.css" />
+    <Content Include="Parcel\ParcelStat.aspx" />
     <Content Include="Parcel\RateofParcel.aspx" />
+    <Content Include="Parcel\SrcParcel.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="resetPassword.aspx" />
@@ -388,12 +391,26 @@
     <Compile Include="Parcel\Parcel.Master.designer.cs">
       <DependentUpon>Parcel.Master</DependentUpon>
     </Compile>
+    <Compile Include="Parcel\ParcelStat.aspx.cs">
+      <DependentUpon>ParcelStat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parcel\ParcelStat.aspx.designer.cs">
+      <DependentUpon>ParcelStat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Parcel\RateofParcel.aspx.cs">
       <DependentUpon>RateofParcel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Parcel\RateofParcel.aspx.designer.cs">
       <DependentUpon>RateofParcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parcel\SrcParcel.aspx.cs">
+      <DependentUpon>SrcParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parcel\SrcParcel.aspx.designer.cs">
+      <DependentUpon>SrcParcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

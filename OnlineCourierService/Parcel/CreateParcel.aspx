@@ -139,7 +139,6 @@
                     Operator="DataTypeCheck" SetFocusOnError="True" Type="Integer">*</asp:CompareValidator>
                 <asp:RangeValidator ID="RVContainer" runat="server" ErrorMessage="Containers No. must be between 1-10" ControlToValidate="TBfood" Display="Dynamic" ForeColor="Red"
                     MaximumValue="10" MinimumValue="1" SetFocusOnError="True" Type="Integer">*</asp:RangeValidator>
-
             </div>
             <br />
             <br />
@@ -233,16 +232,6 @@
     <div class="full__div">
         <h3 class="hero__text">Place Pickup Request/Send Package </h3>
         <asp:Button ID="Bsubmit" CssClass="btn" runat="server" Text="Place Request" OnClick="Bsubmit_Click" />
-        <asp:LinkButton ID="LBcancel" CssClass="cbtn" runat="server">Cancel</asp:LinkButton>
+        <asp:LinkButton ID="LBcancel" CssClass="cbtn" CausesValidation="false" OnClick="LBcancel_Click" runat="server">Cancel</asp:LinkButton>
     </div>
-    <svg display="none">
-        <symbol id="usericon" role="presentation" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 194 194">
-            <path class="border"
-                d="M97 13a84 84 0 1 1-84 84 84.09513 84.09513 0 0 1 84-84m0-13a97 97 0 1 0 97 97A97 97 0 0 0 97 0z" />
-            <circle class="head" cx="97" cy="65" r="33" />
-            <path class="body"
-                d="M43 142c-8.44147-9.10907-8.31122-14.73462-8-17 .83569-6.08286 6.0473-10.29041 12.5-15.5a70.56271 70.56271 0 0 1 12.00311-7.8181 6.82759 6.82759 0 0 1 6.52424.17143 60.95361 60.95361 0 0 0 60.67427.158 6.83155 6.83155 0 0 1 6.92674.11175A131.12246 131.12246 0 0 1 144.5 109.5c8.96344 6.76105 13.46625 10.24872 14.5 15.5 1.34631 6.83887-3.77936 13.1456-7 17-10.00458 11.9733-28 24-50 24-28.77063 0-49.63916-13.89883-59-24z" />
-        </symbol>
-    </svg>
 </asp:Content>

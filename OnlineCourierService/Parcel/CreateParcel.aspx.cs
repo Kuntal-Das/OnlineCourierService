@@ -11,7 +11,7 @@ namespace OnlineCourierService.Parcel
 {
     public partial class CreateParcel : System.Web.UI.Page
     {
-        string link, package=null;
+        string link, package = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             bool redirect = true;
@@ -63,6 +63,7 @@ namespace OnlineCourierService.Parcel
                     {
                         cookie["qstr"] = "?parcel=" + package;
                     }
+                    cookie.Expires = DateTime.Now.AddMinutes(5);
                     Response.Cookies.Add(cookie);
                     Server.Transfer("~/LoginPopup.aspx");
                 }
@@ -96,7 +97,18 @@ namespace OnlineCourierService.Parcel
 
         protected void LoginSignIn_Click(object sender, EventArgs e)
         {
-            Response.Cookies.Add(new HttpCookie("redirectLink", "~" + link));
+            if (Request.QueryString["parcel"] != null)
+            {
+                package = Request.QueryString["parcel"];
+            }
+            HttpCookie cookie = new HttpCookie("redirectLink");
+            cookie["link"] = "~" + link;
+            if (package != null)
+            {
+                cookie["qstr"] = "?parcel=" + package;
+            }
+            cookie.Expires = DateTime.Now.AddMinutes(5);
+            Response.Cookies.Add(cookie);
             Server.Transfer("~/LoginPopup.aspx");
         }
 
@@ -231,6 +243,11 @@ namespace OnlineCourierService.Parcel
             DDLrReg.SelectedValue = Branch.GetRidbyBid(rec.BID).ToString();
             LoadrBranch();
             DDLrbranch.SelectedValue = rec.BID.ToString();
+        }
+
+        protected void LBcancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/index.aspx");
         }
 
         protected void Bsubmit_Click(object sender, EventArgs e)

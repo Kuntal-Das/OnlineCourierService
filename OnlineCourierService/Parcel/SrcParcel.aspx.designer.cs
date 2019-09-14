@@ -10,7 +10,25 @@
 namespace OnlineCourierService.Parcel {
     
     
-    public partial class RateofParcel {
+    public partial class SrcParcel {
+        
+        /// <summary>
+        /// PError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PError;
+        
+        /// <summary>
+        /// Lerr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lerr;
         
         /// <summary>
         /// LoginSignIn control.
@@ -67,21 +85,66 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.LinkButton signout;
         
         /// <summary>
-        /// OBSPrates control.
+        /// LsrcPLID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource OBSPrates;
+        protected global::System.Web.UI.WebControls.Label LsrcPLID;
         
         /// <summary>
-        /// GVRates control.
+        /// TBsrcPLID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVRates;
+        protected global::System.Web.UI.WebControls.TextBox TBsrcPLID;
+        
+        /// <summary>
+        /// RFVsrcPLID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsrcPLID;
+        
+        /// <summary>
+        /// Bsrc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Bsrc;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// GVpParcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVpParcel;
+        
+        /// <summary>
+        /// GVsrcParcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVsrcParcel;
     }
 }

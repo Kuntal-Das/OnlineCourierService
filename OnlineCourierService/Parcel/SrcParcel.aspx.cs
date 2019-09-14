@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace OnlineCourierService.Parcel
 {
-    public partial class RateofParcel : System.Web.UI.Page
+    public partial class SrcParcel : System.Web.UI.Page
     {
         private Customer cus;
         private string link;
@@ -39,6 +39,7 @@ namespace OnlineCourierService.Parcel
             Session.Remove("LightCus");
             Response.Redirect("~/index.aspx");
         }
+
         protected void LoginSignIn_Click(object sender, EventArgs e)
         {
             HttpCookie cookie = new HttpCookie("redirectLink");

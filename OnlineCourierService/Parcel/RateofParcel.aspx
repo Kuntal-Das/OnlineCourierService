@@ -7,9 +7,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHerrMsg" runat="server"></asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="CPHuser" runat="server">
+    <asp:LinkButton ID="LoginSignIn" CssClass="login" runat="server" CausesValidation="false" OnClick="LoginSignIn_Click">
+        <span></span><span></span><span></span><span></span>
+        Sign Up or Login <svg role="presentation" class="icon user--icon"><use xlink:href="#usericon" /></svg>
+    </asp:LinkButton>
     <asp:Panel ID="Puser" CssClass="account" runat="server" Visible="false" OnClick="toogleUserontrol();">
         <asp:Panel ID="ProundedDP" CssClass="userDP" runat="server"></asp:Panel>
-
         <asp:Label ID="Aname" CssClass="user" runat="server" Text="Employee"></asp:Label>
         <ul class="usercontrol hidden">
             <li class="l2__nav">
