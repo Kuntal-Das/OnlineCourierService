@@ -170,28 +170,7 @@
                     </asp:HyperLink>
                 </div>
                 <div class="content">
-                    <asp:Panel ID="Ppresonal" CssClass="1st imgDiv" runat="server" data-src="/svg/background/open.svg" data-pos="0">
-                        <div class="desc">
-                            <h2 class="desc__h2">Open New Personal Account</h2>
-                            <p class="desc__p">
-                                Are you new here open a personal Account so that you can keep track of
-                                everything you do here
-                            </p>
-                            <asp:HyperLink ID="HyperLink28" CssClass="desc__link" NavigateUrl="~/register.aspx?q=personal" runat="server">Create Personal A/c</asp:HyperLink>
-                        </div>
-                    </asp:Panel>
-                    <asp:Panel ID="Pbusiness" CssClass="1st imgDiv" runat="server" data-src="/svg/background/open.svg" data-pos="0">
-                        <div class="desc">
-                            <h2 class="desc__h2">Open New Business Account</h2>
-                            <p class="desc__p">
-                                Are you a business person or a corporative looking for our service Create
-                                a
-                                Business Account, we take extra care for our business clients
-                            </p>
-                            <asp:HyperLink ID="HyperLink29" CssClass="desc__link" NavigateUrl="~/register.aspx?q=business" runat="server">Create Business A/c</asp:HyperLink>
-                        </div>
-                    </asp:Panel>
-                    <div class="3rd imgDiv" data-src="/svg/background/gift.svg" data-pos="2">
+                    <div class="3rd imgDiv" data-src="/svg/background/gift.svg" data-pos="0">
                         <div class="desc">
                             <h2 class="desc__h2">Send Gifts</h2>
                             <p class="desc__p">
@@ -202,10 +181,10 @@
                                 <br />
                                 We will include a Special Gift from us too 
                             </p>
-                            <asp:HyperLink ID="HyperLink30" CssClass="desc__link" NavigateUrl="#" runat="server">Send Gifts</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink30" CssClass="desc__link" NavigateUrl="~/Parcel/CreateParcel.aspx?parcel=Gift" runat="server">Send Gifts</asp:HyperLink>
                         </div>
                     </div>
-                    <div class="4th imgDiv" data-src="/svg/background/food.svg" data-pos="3">
+                    <div class="4th imgDiv" data-src="/svg/background/food.svg" data-pos="1">
                         <div class="desc">
                             <h2 class="desc__h2">Send Food</h2>
                             <p class="desc__p">
@@ -213,9 +192,30 @@
                                 We have Food Delivery Service when you need<br />
                                 You just make the food, We Take care of everything else<br />
                             </p>
-                            <asp:HyperLink ID="HyperLink31" CssClass="desc__link" NavigateUrl="#" runat="server">Send Cooked Food / Dry Food</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink31" CssClass="desc__link" NavigateUrl="~/Parcel/CreateParcel.aspx?parcel=CookedFood" runat="server">Send Cooked Food / Dry Food</asp:HyperLink>
                         </div>
                     </div>
+                    <asp:Panel ID="Ppresonal" CssClass="1st imgDiv" runat="server" data-src="/svg/background/open.svg" data-pos="2">
+                        <div class="desc">
+                            <h2 class="desc__h2">Open New Personal Account</h2>
+                            <p class="desc__p">
+                                Are you new here open a personal Account so that you can keep track of
+                                everything you do here
+                            </p>
+                            <asp:HyperLink ID="HyperLink28" CssClass="desc__link" NavigateUrl="~/register.aspx?q=personal" runat="server">Create Personal A/c</asp:HyperLink>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="Pbusiness" CssClass="2nd imgDiv" runat="server" data-src="/svg/background/business.svg" data-pos="3">
+                        <div class="desc">
+                            <h2 class="desc__h2">Open New Business Account</h2>
+                            <p class="desc__p">
+                                Are you a business person or a corporative looking for our service Create
+                                a
+                                Business Account, we take extra care for our business clients
+                            </p>
+                            <asp:HyperLink ID="HyperLink29" CssClass="desc__link" NavigateUrl="~/register.aspx?q=business" runat="server">Create Business A/c</asp:HyperLink>
+                        </div>
+                    </asp:Panel>
                 </div>
                 <footer class="foot">
                     <div class="foot__div about">

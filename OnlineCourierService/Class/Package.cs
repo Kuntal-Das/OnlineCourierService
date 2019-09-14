@@ -22,7 +22,6 @@ namespace OnlineCourierService.Class
             this.SentTime = SentTime;
             this.SentByEID = SentByEID;
         }
-        public CheckPoint() { }
     }
     public class SenderReceiver
     {
@@ -58,7 +57,7 @@ namespace OnlineCourierService.Class
         public int Container { get; set; }
         public List<long> BoundPath { get; set; }//BIDs->Time->EID(if possible)
         public long sendingStatus { get; set; }//processing req,PickedUp,Approved,ckeckpoints(BIDs),out for Delivery,received/returned
-        public Package(string PacelType, double Weight, SenderReceiver Sender, SenderReceiver Receiver, long SourceBID, long DestBID,long SourceRID, long DestRID,
+        public Package(string PacelType, double Weight, SenderReceiver Sender, SenderReceiver Receiver, long SourceBID, long DestBID, long SourceRID, long DestRID,
             long sendingStatus, double invoicePrice, string PaymentMethod, string PaymentStatus, int PackagingByCustomer, int Container)
         {
             this.ParcelType = PacelType;
@@ -66,8 +65,8 @@ namespace OnlineCourierService.Class
             this.Sender = Sender;
             this.Receiver = Receiver;
             this.SourceBID = SourceBID;
-            this.DestBID = DestBID;
             this.SourceRID = SourceRID;
+            this.DestBID = DestBID;
             this.DestRID = DestRID;
             this.sendingStatus = sendingStatus;
             this.invoicePrice = invoicePrice;
@@ -101,14 +100,16 @@ namespace OnlineCourierService.Class
                     cmd1.Parameters.AddWithValue("@sNAME", this.Sender.Name);
                     cmd1.Parameters.AddWithValue("@sADDR", this.Sender.Address);
                     cmd1.Parameters.AddWithValue("@sBID", this.SourceBID);
-                    cmd1.Parameters.AddWithValue("@sRID", this.SourceRID);
+                    if (this.SourceBID == this.SourceRID){cmd1.Parameters.AddWithValue("@sRID", -1);}
+                    else{ cmd1.Parameters.AddWithValue("@sRID", this.SourceRID);}
                     cmd1.Parameters.AddWithValue("@sEMAIL", this.Sender.Email);
 
                     cmd1.Parameters.AddWithValue("@rCID", this.Receiver.CID);
                     cmd1.Parameters.AddWithValue("@rNAME", this.Receiver.Name);
                     cmd1.Parameters.AddWithValue("@rADDR", this.Receiver.Address);
                     cmd1.Parameters.AddWithValue("@rBID", this.DestBID);
-                    cmd1.Parameters.AddWithValue("@rRID", this.DestRID);
+                    if (this.DestBID == this.DestRID) { cmd1.Parameters.AddWithValue("@rRID", -1); }
+                    else { cmd1.Parameters.AddWithValue("@rRID", this.DestRID); }
                     cmd1.Parameters.AddWithValue("@rEMAIL", this.Receiver.Email);
 
                     cmd1.Parameters.AddWithValue("@PByCus", this.PackagingByCustomer);

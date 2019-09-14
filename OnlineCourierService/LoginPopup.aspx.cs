@@ -10,9 +10,10 @@ namespace OnlineCourierService
 {
     public partial class LoginPopup : System.Web.UI.Page
     {
+        string link, query = null;
+        Customer cus;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Customer cus;
             if (!IsPostBack)
             {
                 if (Session["LightCus"] != null)
@@ -22,8 +23,17 @@ namespace OnlineCourierService
                     cus.FillData();
                     if (cus.email != null)
                     {
-                        string link = (Request.Cookies["redirectLink"] == null) ? "~/index.aspx" : Request.Cookies["redirectLink"].Value;
-                        Response.Redirect(link);
+                        if (Request.Cookies["redirectLink"] == null)
+                        {
+                            link = "~/index.aspx";
+                        }
+                        else
+                        {
+                            HttpCookie cookie = Request.Cookies["redirectLink"];
+                            link = cookie["link"];
+                            query = (cookie["qstr"] == null) ? "" : cookie["qstr"];
+                        }
+                        Response.Redirect(link + query);
                     }
                 }
             }
@@ -46,7 +56,9 @@ namespace OnlineCourierService
         }
         protected void Blogin_Click(object sender, EventArgs e)
         {
-            string link = (Request.Cookies["redirectLink"] == null) ? "~/index.aspx" : Request.Cookies["redirectLink"].Value;
+            HttpCookie cookie = Request.Cookies["redirectLink"];
+            link = cookie["link"];
+            query = (cookie["qstr"] == null) ? "" : cookie["qstr"];
 
             if (Page.IsValid)
             {
@@ -67,7 +79,7 @@ namespace OnlineCourierService
                     return;
                 }
                 Session["LightCus"] = CID;
-                Response.Redirect(link);
+                Response.Redirect(link + query);
             }
             else
             {
@@ -76,8 +88,17 @@ namespace OnlineCourierService
         }
         protected void LBskip_Click(object sender, EventArgs e)
         {
-            string link = (Request.Cookies["redirectLink"] == null) ? "~/index.aspx" : Request.Cookies["redirectLink"].Value;
-            Response.Redirect(link+ "?Redirect=false");
+            HttpCookie cookie = Request.Cookies["redirectLink"];
+            link = cookie["link"];
+            if (cookie["qstr"] == null)
+            {
+                Response.Redirect(link + "?Redirect=false");
+            }
+            else
+            {
+                query = cookie["qstr"];
+                Response.Redirect(link + query+"&Redirect=false");
+            }
         }
 
 

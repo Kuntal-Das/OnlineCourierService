@@ -11,18 +11,33 @@ namespace OnlineCourierService.Parcel
 {
     public partial class CreateParcel : System.Web.UI.Page
     {
-        static string link;
+        string link, package=null;
         protected void Page_Load(object sender, EventArgs e)
         {
             bool redirect = true;
             if (Request.QueryString["Redirect"] != null)
             {
-                redirect = Convert.ToBoolean(Request.QueryString["Redirect"]);
+                try { redirect = Convert.ToBoolean(Request.QueryString["Redirect"]); }
+                catch (Exception) { Response.Redirect("~/Parcel/CreateParcel.aspx?redirect=false"); }
             }
             link = HttpContext.Current.Request.Url.AbsolutePath;
             Customer cus;
             if (!IsPostBack)
             {
+                if (Request.QueryString["parcel"] != null)
+                {
+                    package = Request.QueryString["parcel"];
+                    try
+                    {
+                        DDLPtype.SelectedValue = package;
+                        DDLPtype.BorderColor = System.Drawing.Color.Cyan;
+                        TogglePFood();
+                    }
+                    catch (Exception)
+                    {
+                        Notifyuser("Somthing Happened Wrong! We are looking into it", false);
+                    }
+                }
                 if (Session["LightCus"] != null)
                 {
                     string CID = Session["LightCus"].ToString();
@@ -38,11 +53,17 @@ namespace OnlineCourierService.Parcel
                     }
                     TBPweight.Enabled = TBsName.Enabled = TBsEmail.Enabled =
                         TBsAddr.Enabled = TBrName.Enabled = TBrEmail.Enabled =
-                        TBrAddr.Enabled = false;
+                        TBrAddr.Enabled = TBfood.Enabled = false;
                 }
                 else if (redirect)
                 {
-                    Response.Cookies.Add(new HttpCookie("redirectLink", "~" + link));
+                    HttpCookie cookie = new HttpCookie("redirectLink");
+                    cookie["link"] = "~" + link;
+                    if (package != null)
+                    {
+                        cookie["qstr"] = "?parcel=" + package;
+                    }
+                    Response.Cookies.Add(cookie);
                     Server.Transfer("~/LoginPopup.aspx");
                 }
                 else
@@ -177,7 +198,7 @@ namespace OnlineCourierService.Parcel
             Psender.Visible = false;
             TBPweight.Enabled = TBsName.Enabled = TBsEmail.Enabled =
                         TBsAddr.Enabled = TBrName.Enabled = TBrEmail.Enabled =
-                        TBrAddr.Enabled = true;
+                        TBrAddr.Enabled = TBfood.Enabled = true;
 
             LoadSender(new Customer(Session["LightCus"].ToString(), true));
             LoadReceiver(Customer.GetinfoByEmail(TBORemail.Text.Trim()));
@@ -237,12 +258,11 @@ namespace OnlineCourierService.Parcel
                 long rRID = Convert.ToInt64(DDLrReg.SelectedValue);
 
                 int PackagingByCustomer = Convert.ToInt32(DDLpackage.SelectedValue);
-                int container = -1;
-                if (DDLPtype.SelectedIndex == 3 || DDLPtype.SelectedIndex == 4)
-                {
-                    container = Convert.ToInt32(TBfood.Text.Trim());
-                }
-                Package p = new Package(parcelType, weight, Sender, Receiver, sBID, rBID, sRID, rRID, 0, 0, paymentMethod, "Pending", PackagingByCustomer,container);
+                int container;
+                if (PFood.Visible) { container = Convert.ToInt32(TBfood.Text.Trim()); }
+                else { container = -1; }
+
+                Package p = new Package(parcelType, weight, Sender, Receiver, sBID, rBID, sRID, rRID, 0, 0, paymentMethod, "Pending", PackagingByCustomer, container);
                 string plid = p.insertPackage();
                 if (plid == null)
                 {
