@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="RateofParcel.aspx.cs" Inherits="OnlineCourierService.Parcel.RateofParcel" %>
+﻿<%@ Page Title="Rate of Transport" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="RateofParcel.aspx.cs" Inherits="OnlineCourierService.Parcel.RateofParcel" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/RateofParcel.css" rel="stylesheet" />

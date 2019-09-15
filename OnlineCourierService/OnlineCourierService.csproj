@@ -200,6 +200,7 @@
     <Content Include="PageNotFoundErrorPage.aspx" />
     <Content Include="Parcel\CreateParcel.aspx" />
     <Content Include="Parcel\css\CreateParcel.css" />
+    <Content Include="Parcel\css\ParcelStat.css" />
     <Content Include="Parcel\css\RateofParcel.css" />
     <Content Include="Parcel\css\SrcParcel.css" />
     <Content Include="Parcel\ParcelStat.aspx" />

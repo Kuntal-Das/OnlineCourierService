@@ -1,0 +1,71 @@
+﻿.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info__container, .content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.info__container {
+    background-color: #ded5d5;
+    border-radius: 5px 5px 0px 0px;
+    z-index:2;
+}
+
+.content, .status {
+    position: relative;
+    width: 87%;
+    background-color: rgba(255, 255, 255, 0.70);
+    transform: translateY(-10px);
+    z-index: 0;
+}
+.status{
+    padding:10px 20px;
+    margin:5px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+.half__div {
+    width: 45%;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lable, .hero__text {
+    margin: 5px;
+}
+.progressbar{
+    position:absolute;
+    width:3px;
+    height:95%;
+    background-color:gray;
+    background-image:linear-gradient(lawngreen 0%,gray 0%);
+}
+.stat__div{
+    position:relative;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:5px;
+    border:1px solid white;
+    margin:5px 5px 10px 10px;
+    border-radius:0px 5px 5px 0px;
+}
+.round{
+    position:absolute;
+    transform:translate(-19px,0px);
+    padding:5px;
+    border-radius:50%;
+    background-color:gray;/*lawngreen;*/
+}
+/*#ff9f00*/

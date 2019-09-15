@@ -77,8 +77,8 @@
         <div class="inner__div">
             <asp:RadioButtonList ID="RBLParcels" runat="server" CssClass="rblist" AutoPostBack="True" RepeatDirection="Horizontal" RepeatLayout="Table" 
                 OnSelectedIndexChanged="RBLParcels_SelectedIndexChanged">
-                <asp:ListItem Text="Sent" Value="0" Selected="True"></asp:ListItem>
-                <asp:ListItem Text="Received" Value="2"></asp:ListItem>
+                <asp:ListItem Text="Sent/Being Sent" Value="0" Selected="True"></asp:ListItem>
+                <asp:ListItem Text="Received/Will Receive" Value="2"></asp:ListItem>
             </asp:RadioButtonList>
         </div>
         <asp:GridView ID="GVbyCID" CssClass="gv" runat="server" AutoGenerateColumns="False" EnableViewState="False" DataKeyNames="PARCELid"
