@@ -43,19 +43,59 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
     <div class="full__div">
         <h3 class="hero__text">Search Parcel</h3>
-        <asp:Label ID="LsrcPLID" runat="server" Text="Enter Parcel ID"></asp:Label>
-        <div class="inputbox">
-            <asp:TextBox ID="TBsrcPLID" CssClass="input" runat="server" required=""></asp:TextBox>
-            <span class="floating-placeholder">Enter 32-digit Parcel ID</span>
-            <asp:RequiredFieldValidator ID="RFVsrcPLID" runat="server" ErrorMessage="Parcel ID is Required" SetFocusOnError="True" ControlToValidate="TBsrcPLID"
-                Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+        <div class="inner__div">
+            <asp:Label ID="LsrcPLID" runat="server" Text="Enter Parcel ID [Enter PLID as provided Include dashes(-) whenever ncessary] :  "></asp:Label>
+            <div class="inputbox">
+                <asp:TextBox ID="TBsrcPLID" CssClass="input" runat="server" required="" Width="400px"></asp:TextBox>
+                <span class="floating-placeholder">Enter 32-digit Parcel ID</span>
+                <asp:RequiredFieldValidator ID="RFVsrcPLID" runat="server" ErrorMessage="Parcel ID is Required" SetFocusOnError="True" ControlToValidate="TBsrcPLID"
+                    Text="*" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator Display="Dynamic" ControlToValidate="TBsrcPLID" ID="REVsrcParcel" ValidationExpression="^[\s\S]{32,38}$"
+                    runat="server" ErrorMessage="Invalid Parcel ID" ForeColor="Red" Text="*"></asp:RegularExpressionValidator>
+            </div>
+            <asp:Button ID="Bsrc" CssClass="btn" runat="server" Text="Search" OnClick="Bsrc_Click" />
+            <asp:ValidationSummary ID="VSsrcParcel" runat="server" ForeColor="Red" DisplayMode="List" />
         </div>
-        <asp:Button ID="Bsrc" CssClass="btn" runat="server" Text="Search" />
+        <asp:GridView ID="GVsrcParcel" CssClass="gv" runat="server" AutoGenerateColumns="False" EnableViewState="False" DataKeyNames="PARCELid"
+            EmptyDataText="No Records Found">
+            <Columns>
+                <asp:BoundField DataField="PARCELid" HeaderText="Parcel ID" />
+                <asp:BoundField DataField="SENDER" HeaderText="Sender Name" />
+                <asp:BoundField DataField="RECEIVER" HeaderText="Receiver Name" />
+                <asp:BoundField DataField="PARCELTYPE" HeaderText="Parcel Type" />
+                <asp:BoundField DataField="CURRENTSTATUS" HeaderText="Current Status" />
+                <asp:BoundField DataField="PAYMENTSTATUS" HeaderText="Payment Status" />
+                <asp:BoundField DataField="DATE" HeaderText="Date Created" DataFormatString="{0:G}" />
+                <asp:HyperLinkField ShowHeader="False" Text="View Details" DataNavigateUrlFormatString="~/Parcel/ParcelStat.aspx?PLID={0}" DataNavigateUrlFields="PARCELid">
+                    <ControlStyle CssClass="btn" />
+                </asp:HyperLinkField>
+            </Columns>
+        </asp:GridView>
     </div>
-    <asp:Panel ID="Panel1" runat="server" CssClass="full__div" Visible="false">
+    <asp:Panel ID="PYParcel" runat="server" CssClass="full__div" Visible="false">
         <h3 class="hero__text">Your Parcels</h3>
-        <asp:GridView ID="GVpParcel" CssClass="gv" runat="server"></asp:GridView>
+        <div class="inner__div">
+            <asp:RadioButtonList ID="RBLParcels" runat="server" CssClass="rblist" AutoPostBack="True" RepeatDirection="Horizontal" RepeatLayout="Table" 
+                OnSelectedIndexChanged="RBLParcels_SelectedIndexChanged">
+                <asp:ListItem Text="Sent" Value="0" Selected="True"></asp:ListItem>
+                <asp:ListItem Text="Received" Value="2"></asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+        <asp:GridView ID="GVbyCID" CssClass="gv" runat="server" AutoGenerateColumns="False" EnableViewState="False" DataKeyNames="PARCELid"
+            EmptyDataText="No Records To Show">
+            <Columns>
+                <asp:BoundField DataField="PARCELid" HeaderText="Parcel ID" />
+                <asp:BoundField DataField="SENDER" HeaderText="Sender Name" />
+                <asp:BoundField DataField="RECEIVER" HeaderText="Receiver Name" />
+                <asp:BoundField DataField="PARCELTYPE" HeaderText="Parcel Type" />
+                <asp:BoundField DataField="CURRENTSTATUS" HeaderText="Current Status" />
+                <asp:BoundField DataField="PAYMENTSTATUS" HeaderText="Payment Status" />
+                <asp:BoundField DataField="DATE" HeaderText="Date Created" DataFormatString="{0:G}" />
+                <asp:HyperLinkField ShowHeader="False" Text="View Details" DataNavigateUrlFormatString="~/Parcel/ParcelStat.aspx?PLID={0}" DataNavigateUrlFields="PARCELid">
+                    <ControlStyle CssClass="btn" />
+                </asp:HyperLinkField>
+            </Columns>
+        </asp:GridView>
     </asp:Panel>
-    <asp:GridView ID="GVsrcParcel" CssClass="gv" runat="server"></asp:GridView>
 
 </asp:Content>

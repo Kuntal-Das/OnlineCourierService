@@ -112,6 +112,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVsrcPLID;
         
         /// <summary>
+        /// REVsrcParcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REVsrcParcel;
+        
+        /// <summary>
         /// Bsrc control.
         /// </summary>
         /// <remarks>
@@ -121,22 +130,13 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.Button Bsrc;
         
         /// <summary>
-        /// Panel1 control.
+        /// VSsrcParcel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
-        /// GVpParcel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GVpParcel;
+        protected global::System.Web.UI.WebControls.ValidationSummary VSsrcParcel;
         
         /// <summary>
         /// GVsrcParcel control.
@@ -146,5 +146,32 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVsrcParcel;
+        
+        /// <summary>
+        /// PYParcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PYParcel;
+        
+        /// <summary>
+        /// RBLParcels control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList RBLParcels;
+        
+        /// <summary>
+        /// GVbyCID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GVbyCID;
     }
 }

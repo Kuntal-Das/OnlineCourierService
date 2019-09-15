@@ -67,24 +67,6 @@ namespace OnlineCourierService {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
         
         /// <summary>
-        /// HyperLink4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
-        
-        /// <summary>
-        /// HyperLink5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
-        
-        /// <summary>
         /// HyperLink6 control.
         /// </summary>
         /// <remarks>
@@ -92,15 +74,6 @@ namespace OnlineCourierService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink6;
-        
-        /// <summary>
-        /// HyperLink7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
         
         /// <summary>
         /// HyperLink8 control.
@@ -139,15 +112,6 @@ namespace OnlineCourierService {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink10;
         
         /// <summary>
-        /// HyperLink11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink11;
-        
-        /// <summary>
         /// HyperLink12 control.
         /// </summary>
         /// <remarks>
@@ -157,13 +121,13 @@ namespace OnlineCourierService {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink12;
         
         /// <summary>
-        /// HyperLink13 control.
+        /// HyperLink2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink13;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
         /// HyperLink22 control.
@@ -175,24 +139,6 @@ namespace OnlineCourierService {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink22;
         
         /// <summary>
-        /// HyperLink14 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink14;
-        
-        /// <summary>
-        /// HyperLink15 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink15;
-        
-        /// <summary>
         /// HyperLink16 control.
         /// </summary>
         /// <remarks>
@@ -200,15 +146,6 @@ namespace OnlineCourierService {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink16;
-        
-        /// <summary>
-        /// HyperLink17 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink17;
         
         /// <summary>
         /// HyperLink18 control.
@@ -220,22 +157,13 @@ namespace OnlineCourierService {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink18;
         
         /// <summary>
-        /// HyperLink19 control.
+        /// HyperLink4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink19;
-        
-        /// <summary>
-        /// HyperLink20 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink20;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
         
         /// <summary>
         /// LoginSignIn control.

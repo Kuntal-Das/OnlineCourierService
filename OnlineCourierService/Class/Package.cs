@@ -99,21 +99,23 @@ namespace OnlineCourierService.Class
                     cmd1.Parameters.AddWithValue("@sCID", this.Sender.CID);
                     cmd1.Parameters.AddWithValue("@sNAME", this.Sender.Name);
                     cmd1.Parameters.AddWithValue("@sADDR", this.Sender.Address);
-                    cmd1.Parameters.AddWithValue("@sBID", this.SourceBID);
-                    if (this.SourceBID == this.SourceRID){cmd1.Parameters.AddWithValue("@sRID", -1);}
-                    else{ cmd1.Parameters.AddWithValue("@sRID", this.SourceRID);}
                     cmd1.Parameters.AddWithValue("@sEMAIL", this.Sender.Email);
 
                     cmd1.Parameters.AddWithValue("@rCID", this.Receiver.CID);
                     cmd1.Parameters.AddWithValue("@rNAME", this.Receiver.Name);
                     cmd1.Parameters.AddWithValue("@rADDR", this.Receiver.Address);
-                    cmd1.Parameters.AddWithValue("@rBID", this.DestBID);
-                    if (this.DestBID == this.DestRID) { cmd1.Parameters.AddWithValue("@rRID", -1); }
-                    else { cmd1.Parameters.AddWithValue("@rRID", this.DestRID); }
                     cmd1.Parameters.AddWithValue("@rEMAIL", this.Receiver.Email);
 
                     cmd1.Parameters.AddWithValue("@PByCus", this.PackagingByCustomer);
                     cmd1.Parameters.AddWithValue("@Container", this.Container);
+
+                    cmd1.Parameters.AddWithValue("@sBID", this.SourceBID);
+                    if (this.SourceBID == this.SourceRID) { cmd1.Parameters.AddWithValue("@sRID", -1); }
+                    else { cmd1.Parameters.AddWithValue("@sRID", this.SourceRID); }
+
+                    cmd1.Parameters.AddWithValue("@rBID", this.DestBID);
+                    if (this.DestBID == this.DestRID) { cmd1.Parameters.AddWithValue("@rRID", -1); }
+                    else { cmd1.Parameters.AddWithValue("@rRID", this.DestRID); }
 
                     return Convert.ToString(cmd1.ExecuteScalar());
                 }
@@ -123,9 +125,44 @@ namespace OnlineCourierService.Class
             }
         }
 
+        public static DataTable GetParcelsByPLID(string PLID)
+        {
+            DataTable data=new DataTable("Parcel by PLID");
+            using (SqlConnection con = new SqlConnection(connectionstr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("SrcParcelByPLID", con);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@PLID",PLID);
+                    da.Fill(data);
+                    return data;
+                }
+                catch (Exception) { return null; }
+                finally { con.Close(); }
+            }
+        }
 
-
-
+        public static DataTable GetParcelsByCID(string CID,int type)///type:0 for sent ;1 for received
+        {
+            DataTable data = new DataTable("Parcel by PLID");
+            using (SqlConnection con = new SqlConnection(connectionstr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlDataAdapter da = new SqlDataAdapter("SentParcelByCID", con);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@CID", CID);
+                    da.SelectCommand.Parameters.AddWithValue("@type", type);
+                    da.Fill(data);
+                    return data;
+                }
+                catch (Exception) { return null; }
+                finally { con.Close(); }
+            }
+        }
 
     }
 }

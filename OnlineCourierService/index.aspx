@@ -38,16 +38,7 @@
                                 <asp:HyperLink ID="HyperLink3" CssClass="level2nav__link" NavigateUrl="~/Parcel/RateofParcel.aspx" runat="server">Shipping Rates</asp:HyperLink>
                             </li>
                             <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink4" CssClass="level2nav__link" NavigateUrl="#" runat="server">Schedule & Manage Pickups</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink5" CssClass="level2nav__link" NavigateUrl="#" runat="server">Packaging & Shipping Supplies</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
                                 <asp:HyperLink ID="HyperLink6" CssClass="level2nav__link" NavigateUrl="#" runat="server">Returns</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink7" CssClass="level2nav__link" NavigateUrl="#" runat="server">Delivery Manager</asp:HyperLink>
                             </li>
                             <li class="level2nav">
                                 <asp:HyperLink ID="HyperLink8" CssClass="level2nav__link" NavigateUrl="#" runat="server">Learn More about Online Shipping</asp:HyperLink>
@@ -61,45 +52,28 @@
                         <asp:HyperLink ID="HyperLink23" CssClass="level1nav__link t2" runat="server">Tracking&blacktriangledown;</asp:HyperLink>
                         <ul class="dropdown UL2">
                             <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink10" CssClass="level2nav__link" NavigateUrl="#" runat="server">Advance Shipment Tracking</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink11" CssClass="level2nav__link" NavigateUrl="#" runat="server">Obtain Proof of Delivery</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink10" CssClass="level2nav__link" NavigateUrl="~/Parcel/ParcelStat.aspx" runat="server">Advance Shipment Tracking</asp:HyperLink>
                             </li>
                             <li class="level2nav">
                                 <asp:HyperLink ID="HyperLink12" CssClass="level2nav__link" NavigateUrl="#" runat="server">Track by Email</asp:HyperLink>
                             </li>
                             <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink13" CssClass="level2nav__link" NavigateUrl="#" runat="server">Packaging & Shipping Supplies</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink2" runat="server" CssClass="level2nav__link" NavigateUrl="~/Parcel/SrcParcel.aspx">All Tracking Services</asp:HyperLink>
                             </li>
-                            <li class="level2nav"><a class="level2nav__link" href="#">All Tracking Services</a></li>
                         </ul>
                     </li>
                     <li class="level1nav">
                         <asp:HyperLink ID="HyperLink22" CssClass="level1nav__link t3" runat="server">Support&blacktriangledown;</asp:HyperLink>
                         <ul class="dropdown UL3">
                             <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink14" CssClass="level2nav__link" NavigateUrl="#" runat="server">New Customer Center</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink15" CssClass="level2nav__link" NavigateUrl="#" runat="server">Small Business Center</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
                                 <asp:HyperLink ID="HyperLink16" CssClass="level2nav__link" NavigateUrl="#" runat="server">File a Claim</asp:HyperLink>
-                            </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink17" CssClass="level2nav__link" NavigateUrl="#" runat="server">View Bills Online</asp:HyperLink>
                             </li>
                             <li class="level2nav">
                                 <asp:HyperLink ID="HyperLink18" CssClass="level2nav__link" NavigateUrl="#" runat="server">Billing/Invoice Forms</asp:HyperLink>
                             </li>
                             <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink19" CssClass="level2nav__link" NavigateUrl="#" runat="server">Custom Tools</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink4" runat="server" CssClass="level2nav__link" NavigateUrl="#">Find Our Store Locations</asp:HyperLink>
                             </li>
-                            <li class="level2nav">
-                                <asp:HyperLink ID="HyperLink20" CssClass="level2nav__link" NavigateUrl="#" runat="server">Goods and Services Tax(GST</asp:HyperLink>
-                            </li>
-                            <li class="level2nav"><a class="level2nav__link" href="#">Find Our Store Locations</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -160,7 +134,7 @@
                         <svg role="presentation" class="icon rate--icon"><use xlink:href="#rate" /></svg>
                         <p class="HQLinks__p">Rate of transport</p>
                     </asp:HyperLink>
-                    <asp:HyperLink ID="HyperLink27" CssClass="HQLinks__link" NavigateUrl="#" runat="server">
+                    <asp:HyperLink ID="HyperLink27" CssClass="HQLinks__link" NavigateUrl="~/Parcel/SrcParcel.aspx" runat="server">
                         <svg role="presentation" class="icon track--icon"><use xlink:href="#trackParcel" /></svg>
                         <p class="HQLinks__p">Track Shipmnet</p>
                     </asp:HyperLink>
