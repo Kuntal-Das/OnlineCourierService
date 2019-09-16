@@ -85,6 +85,15 @@ namespace OnlineCourierService.Parcel {
         protected global::System.Web.UI.WebControls.LinkButton signout;
         
         /// <summary>
+        /// LPLID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LPLID;
+        
+        /// <summary>
         /// LPtype control.
         /// </summary>
         /// <remarks>
@@ -488,6 +497,33 @@ namespace OnlineCourierService.Parcel {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LsCP3Date;
+        
+        /// <summary>
+        /// PrCP4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PrCP4;
+        
+        /// <summary>
+        /// LrCP4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LrCP4;
+        
+        /// <summary>
+        /// LrCP4Date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LrCP4Date;
         
         /// <summary>
         /// PoutForDeli control.

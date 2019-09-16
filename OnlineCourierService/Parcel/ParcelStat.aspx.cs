@@ -31,6 +31,10 @@ namespace OnlineCourierService.Parcel
                         ProundedDP.Style.Add("background-image", cus.imgurl);
                     }
                 }
+                if (Request.QueryString["PLID"] != null)
+                {
+                    LoadData(Request.QueryString["PLID"]);
+                }
             }
         }
         private void Notifyuser(string msg, bool isSuccessful)
@@ -61,6 +65,85 @@ namespace OnlineCourierService.Parcel
             cookie.Expires = DateTime.Now.AddMinutes(5);
             Response.Cookies.Add(cookie);
             Server.Transfer("~/LoginPopup.aspx");
+        }
+
+        private void LoadData(string PLID)
+        {
+            Package parcel = new Package(PLID);
+            parcel.FillData();
+            LPLID.Text += PLID;
+            LPtype.Text += parcel.ParcelType;
+            LPweight.Text += parcel.Weight + "KG";
+            LPRdate.Text += parcel.ReqDate;
+            LPpackaging.Text += (parcel.PackagingByCustomer == 0) ? "Customer" : "Lightning Corp";
+            if (parcel.Container != -1)
+            {
+                LPcontainer.Visible = true;
+                LPcontainer.Text += parcel.Container;
+            }
+            if (parcel.Distance == 0)
+            {
+                LPDistance.Text += "Yet to Be calculated";
+                LPinvoicePrice.Text += "Yet to Be calculated";
+                LPpaymentDate.Text += "Unknown";
+            }
+            else
+            {
+                LPDistance.Text += "About " + parcel.Distance + "KM";
+                LPinvoicePrice.Text += "Rs." + parcel.invoicePrice;
+                LPpaymentDate.Text += parcel.PayDate;
+            }
+            LPpaymentStat.Text += parcel.PaymentStatus;
+            LPpaymentMethod.Text += parcel.PaymentMethod;
+
+            LSname.Text += parcel.Sender.Name;
+            LSaddress.Text += parcel.Sender.Address;
+            LSemail.Text += parcel.Sender.Email;
+            if (parcel.Sender.CID == "-1")
+            {
+                LSisRegistered.Text += "No";
+            }
+            else
+            {
+                LSisRegistered.Text += "Yes";
+                Customer rec = Customer.GetinfoByEmail(parcel.Sender.Email);
+                LSphno.Visible = true;
+                LSphno.Text += rec.phno;
+            }
+            LRname.Text += parcel.Receiver.Name;
+            LRaddress.Text += parcel.Receiver.Address;
+            LRemail.Text += parcel.Receiver.Email;
+            if (parcel.Receiver.CID == "-1")
+            {
+                LRisRegistered.Text += "no";
+            }
+            else
+            {
+                LRisRegistered.Text += "Yes";
+                Customer rec = Customer.GetinfoByEmail(parcel.Receiver.Email);
+                LRphno.Visible = true;
+                LRphno.Text += rec.phno;
+            }
+
+            if (parcel.SourceRID == -1)
+            {
+                PrCP2.Visible = false;
+                PsCP2.Visible = false;
+            }
+            if (parcel.DestRID == -1)
+            {
+                PrCP3.Visible = false;
+                PsCP3.Visible = false;
+            }
+            if (parcel.SourceBID == parcel.DestBID)
+            {
+                PrCP4.Visible = false;
+            }
+
+            if (parcel.statuslist.Count != 0)
+            {
+
+            }
         }
 
 

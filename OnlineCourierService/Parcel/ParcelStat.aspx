@@ -48,19 +48,20 @@
     <div class="content">
         <div class="half__div">
             <h3 class="hero__text">Parcel Details</h3>
+            <asp:Label ID="LPLID" CssClass="lable" runat="server" Text="Parcel ID : "></asp:Label>
             <asp:Label ID="LPtype" CssClass="lable" runat="server" Text="Parcel Type : "></asp:Label>
             <asp:Label ID="LPweight" CssClass="lable" runat="server" Text="Parcel Weight : "></asp:Label>
             <asp:Label ID="LPRdate" CssClass="lable" runat="server" Text="Parcel Request Date : "></asp:Label>
             <asp:Label ID="LPpackaging" CssClass="lable" runat="server" Text="Parcel Packaging Managed by : "></asp:Label>
-            <asp:Label ID="LPcontainer" CssClass="lable" runat="server" Text="Parcel Containers : "></asp:Label>
-            <asp:Label ID="LPDistance" CssClass="lable" runat="server" Text="Distance : About "></asp:Label>
+            <asp:Label ID="LPcontainer" CssClass="lable" runat="server" Text="Parcel Containers : " Visible="false"></asp:Label>
+            <asp:Label ID="LPDistance" CssClass="lable" runat="server" Text="Distance : "></asp:Label>
         </div>
         <div class="half__div">
             <h3 class="hero__text">Parcel Payment Details</h3>
             <asp:Label ID="LPinvoicePrice" CssClass="lable" runat="server" Text="Parcel Invoice Price : "></asp:Label>
             <asp:Label ID="LPpaymentStat" CssClass="lable" runat="server" Text="Parcel Payment Status : "></asp:Label>
             <asp:Label ID="LPpaymentMethod" CssClass="lable" runat="server" Text="Parcel Payment Method : "></asp:Label>
-            <asp:Label ID="LPpaymentDate" CssClass="lable" runat="server" Text="Payment Date: "></asp:Label>
+            <asp:Label ID="LPpaymentDate" CssClass="lable" runat="server" Text="Payment Date : "></asp:Label>
         </div>
     </div>
 
@@ -75,7 +76,7 @@
             <asp:Label ID="LSaddress" CssClass="lable" runat="server" Text="Address : "></asp:Label>
             <asp:Label ID="LSemail" CssClass="lable" runat="server" Text="Email : "></asp:Label>
             <asp:Label ID="LSisRegistered" CssClass="lable" runat="server" Text="Is Registered : "></asp:Label>
-            <asp:Label ID="LSphno" CssClass="lable" runat="server" Text="Phone No. : "></asp:Label>
+            <asp:Label ID="LSphno" CssClass="lable" runat="server" Text="Phone No. : " Visible="false"></asp:Label>
         </div>
         <div class="half__div">
             <h3 class="hero__text">Receiver Details</h3>
@@ -83,7 +84,7 @@
             <asp:Label ID="LRaddress" CssClass="lable" runat="server" Text="Parcel Weight : "></asp:Label>
             <asp:Label ID="LRemail" CssClass="lable" runat="server" Text="Email : "></asp:Label>
             <asp:Label ID="LRisRegistered" CssClass="lable" runat="server" Text="Is Registered : "></asp:Label>
-            <asp:Label ID="LRphno" CssClass="lable" runat="server" Text="Phone No. : "></asp:Label>
+            <asp:Label ID="LRphno" CssClass="lable" runat="server" Text="Phone No. : " Visible="false"></asp:Label>
         </div>
     </div>
     <div class="info__container">
@@ -123,6 +124,10 @@
         <asp:Panel ID="PsCP3" CssClass="stat__div" runat="server">   
             <span class="round"></span>
             <asp:Label ID="LsCP3" runat="server" Text="Out for Checkpoint 4 "></asp:Label><asp:Label ID="LsCP3Date" runat="server" Text="Date : "></asp:Label>
+        </asp:Panel>
+        <asp:Panel ID="PrCP4" CssClass="stat__div" runat="server">   
+            <span class="round"></span>
+            <asp:Label ID="LrCP4" runat="server" Text="Reached Checkpoint 4 "></asp:Label><asp:Label ID="LrCP4Date" runat="server" Text="Date : "></asp:Label>
         </asp:Panel>
         <asp:Panel ID="PoutForDeli" CssClass="stat__div" runat="server">   
             <span class="round"></span>

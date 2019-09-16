@@ -32,6 +32,7 @@ namespace OnlineCourierService.Class
             this.Email = Email;
             this.Address = Address;
         }
+        public SenderReceiver() { }
     }
     public class Package
     {
@@ -47,6 +48,7 @@ namespace OnlineCourierService.Class
         public double invoicePrice { get; private set; }
         public string PaymentMethod { get; private set; }
         public string PaymentStatus { get; private set; }
+        public DateTime PayDate { get; private set; }
         public int PackagingByCustomer { get; private set; }
         public int Container { get; private set; }
         public double Distance { get; private set; }
@@ -73,6 +75,7 @@ namespace OnlineCourierService.Class
             this.PaymentStatus = PaymentStatus;
             this.PackagingByCustomer = PackagingByCustomer;
             this.Container = Container;
+            this.PayDate = nullDate;
             this.Distance = 0;
             this.statuslist = null;
         }
@@ -92,6 +95,7 @@ namespace OnlineCourierService.Class
             this.invoicePrice = -1;
             this.PaymentMethod = null;
             this.PaymentStatus = null;
+            this.PayDate = nullDate;
             this.PackagingByCustomer = -1;
             this.Container = -1;
             this.Distance = -1;
@@ -201,19 +205,23 @@ namespace OnlineCourierService.Class
                     foreach (DataRow dataRow in data.Rows)
                     {
                         this.ParcelType = dataRow.Field<string>("PTYPE");
-                        this.Distance = dataRow.Field<double>("DISTANCE");
-                        this.Weight = dataRow.Field<double>("WEIGHT");
+                        this.Distance = Convert.ToDouble(dataRow.Field<decimal>("DISTANCE"));
+                        this.Weight = Convert.ToDouble(dataRow.Field<decimal>("WEIGHT"));
                         this.PackagingByCustomer = dataRow.Field<int>("PACKAGEBYCUS");
-                        this.invoicePrice = dataRow.Field<double>("INVOICE");
+                        this.invoicePrice = Convert.ToDouble(dataRow.Field<decimal>("INVOICE"));
                         this.PaymentStatus = dataRow.Field<string>("PAYSTATUS");
                         this.PaymentMethod = dataRow.Field<string>("PAYMETHOD");
+                        var date = dataRow.Field<Object>("PAYDATE");
+                        this.PayDate = (date == null) ? nullDate : (DateTime)date;
                         this.Container = dataRow.Field<int>("CONTAINER");
 
+                        this.Sender = new SenderReceiver();
                         this.Sender.CID = dataRow.Field<string>("SCID");
                         this.Sender.Name = dataRow.Field<string>("SNAME");
                         this.Sender.Address = dataRow.Field<string>("SADDR");
                         this.Sender.Email = dataRow.Field<string>("SEMAIL");
 
+                        this.Receiver = new SenderReceiver();
                         this.Receiver.CID = dataRow.Field<string>("RCID");
                         this.Receiver.Name = dataRow.Field<string>("RNAME");
                         this.Receiver.Address = dataRow.Field<string>("RADDR");
@@ -227,51 +235,56 @@ namespace OnlineCourierService.Class
                         this.bidStatus = Convert.ToInt64(dataRow.Field<decimal>("CBIDSTAT"));
                         this.ReqDate = dataRow.Field<DateTime>("REQDATE");
 
+                        this.statuslist = new List<Status>();
+                        //0
                         long eid = Convert.ToInt64(dataRow.Field<decimal>("PROCESSED_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Request processed By", eid, dataRow.Field<DateTime>("PROCESSED_DATE"))); }
                         else { this.statuslist.Add(new Status("Request being processed", -1, nullDate)); }
-
+                        //1
                         eid = Convert.ToInt64(dataRow.Field<decimal>("PICKEDUP_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Picked Up By", eid, dataRow.Field<DateTime>("PICKEDUP_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Picked Up By", -1, nullDate)); }
-
+                        //2
                         eid = Convert.ToInt64(dataRow.Field<decimal>("APPROVED_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Approved By", eid, dataRow.Field<DateTime>("APPROVED_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Approved By", -1, nullDate)); }
-
+                        //3
                         eid = Convert.ToInt64(dataRow.Field<decimal>("CP2REC_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Received at CheckPoint 2", eid, dataRow.Field<DateTime>("CP2REC_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Received at CheckPoint 2 ", -1, nullDate)); }
+                        //4
                         eid = Convert.ToInt64(dataRow.Field<decimal>("CP2SENT_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Sent to CheckPoint 3", eid, dataRow.Field<DateTime>("CP2SENT_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Sent to CheckPoint 3", -1, nullDate)); }
-
+                        //5
                         eid = Convert.ToInt64(dataRow.Field<decimal>("CP3REC_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Received at CheckPoint 3", eid, dataRow.Field<DateTime>("CP3REC_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Received at CheckPoint 3", -1, nullDate)); }
+                        //6
                         eid = Convert.ToInt64(dataRow.Field<decimal>("CP3SENT_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Sent to CheckPoint 4", eid, dataRow.Field<DateTime>("CP3SENT_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Sent to CheckPoint 4", -1, nullDate)); }
-
+                        //7
                         //todo-----------------------------------------------------------
-                        //eid = Convert.ToInt64(dataRow.Field<decimal>("CP4REC_BY"));
-                        //if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Received at CheckPoint 4", eid, dataRow.Field<DateTime>("CP4REC_DATE"))); }
-                        //else { this.statuslist.Add(new Status("Parcel Received at CheckPoint 4", -1, nullDate)); }
-
+                        eid = Convert.ToInt64(dataRow.Field<decimal>("CP4REC_BY"));
+                        if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Received at CheckPoint 4", eid, dataRow.Field<DateTime>("CP4REC_DATE"))); }
+                        else { this.statuslist.Add(new Status("Parcel Received at CheckPoint 4", -1, nullDate)); }
+                        //8
                         eid = Convert.ToInt64(dataRow.Field<decimal>("OUTFORDEL_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Out for Deivery by", eid, dataRow.Field<DateTime>("OUTFORDEL_DATE"))); }
                         else { this.statuslist.Add(new Status("Out for Deivery by", -1, nullDate)); }
-
+                        //9
                         eid = Convert.ToInt64(dataRow.Field<decimal>("DELIVERED_BY"));
                         if (eid >= 1000) { this.statuslist.Add(new Status("Parcel Deivered by", eid, dataRow.Field<DateTime>("DELIVERED_DATE"))); }
                         else { this.statuslist.Add(new Status("Parcel Deivered by", -1, nullDate)); }
-
-                        var date = dataRow.Field<DateTime>("RETURNED_DATE");
+                        //10
+                        date = dataRow.Field<Object>("RETURNED_DATE");
                         if (date != null)
                         {
                             this.statuslist.Add(new Status("Parcel Returned By Receiver", 0, (DateTime)date));
                         }
-                        date = dataRow.Field<DateTime>("CANCELED_DATE");
+                        //11
+                        date = dataRow.Field<Object>("CANCELED_DATE");
                         if (date != null)
                         {
                             this.statuslist.Add(new Status("Parcel Canceled By Sender", 0, (DateTime)date));
