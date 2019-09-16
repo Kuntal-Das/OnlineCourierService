@@ -91,59 +91,7 @@
         <h3>Parcel Status</h3>
         <span>&#9661;</span>
     </div>
-    <div class="status">
+    <asp:Panel ID="Pstatus" CssClass="status" runat="server">
         <asp:Panel ID="PprogressBar" CssClass="progressbar" runat="server"></asp:Panel>
-        <asp:Panel ID="Pprocessing" CssClass="stat__div" runat="server">
-            <span class="round"></span>
-            <asp:Label ID="Lprocessing" runat="server" Text="Prossing"></asp:Label><asp:Label ID="LpDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PoutForPickUp" CssClass="stat__div" runat="server">        
-            <span class="round"></span>
-            <asp:Label ID="Lofpu" runat="server" Text="Out for Pick Up"></asp:Label><asp:Label ID="LofpuDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PpickedUp" CssClass="stat__div" runat="server">        
-            <span class="round"></span>
-            <asp:Label ID="Lpickedup" runat="server" Text="Picked Up By"></asp:Label><asp:Label ID="LpuDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="Papproved" CssClass="stat__div" runat="server">        
-            <span class="round"></span>
-            <asp:Label ID="Lappr" runat="server" Text="Being Approved"></asp:Label><asp:Label ID="LapprDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PrCP2" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LrCP2" runat="server" Text="Reached Checkpoint 2 "></asp:Label><asp:Label ID="LrCP2Date" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PsCP2" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LsCP2" runat="server" Text="Out for Checkpoint 3 "></asp:Label><asp:Label ID="LsCP2Date" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PrCP3" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LrCP3" runat="server" Text="Reached Checkpoint 3 "></asp:Label><asp:Label ID="LrCP3Date" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PsCP3" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LsCP3" runat="server" Text="Out for Checkpoint 4 "></asp:Label><asp:Label ID="LsCP3Date" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PrCP4" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LrCP4" runat="server" Text="Reached Checkpoint 4 "></asp:Label><asp:Label ID="LrCP4Date" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PoutForDeli" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LoutForDeli" runat="server" Text="Out for Delivery"></asp:Label><asp:Label ID="LoutForDeliDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="PdeliBy" CssClass="stat__div" runat="server">   
-            <span class="round"></span>
-            <asp:Label ID="LdeliBy" runat="server" Text="Delivered By "></asp:Label><asp:Label ID="LdeliByDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="Preturn" CssClass="stat__div" runat="server">
-            <span class="round"></span>
-            <asp:Label ID="Lreturn" runat="server" Text="Returned by Receiver"></asp:Label><asp:Label ID="LreturnDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-        <asp:Panel ID="Pcancel" CssClass="stat__div" runat="server">
-            <span class="round"></span>
-            <asp:Label ID="Lcancel" runat="server" Text="Canceled by Sender"></asp:Label><asp:Label ID="LcancelDate" runat="server" Text="Date : "></asp:Label>
-        </asp:Panel>
-    </div>
+    </asp:Panel>
 </asp:Content>

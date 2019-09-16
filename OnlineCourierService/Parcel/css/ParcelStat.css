@@ -15,7 +15,7 @@
 .info__container {
     background-color: #ded5d5;
     border-radius: 5px 5px 0px 0px;
-    z-index:2;
+    z-index: 2;
 }
 
 .content, .status {
@@ -25,14 +25,16 @@
     transform: translateY(-10px);
     z-index: 0;
 }
-.status{
-    padding:10px 20px;
-    margin:5px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:flex-start;
+
+.status {
+    padding: 10px 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+
 .half__div {
     width: 45%;
     padding: 7px;
@@ -43,29 +45,58 @@
 .lable, .hero__text {
     margin: 5px;
 }
-.progressbar{
-    position:absolute;
-    width:3px;
-    height:95%;
-    background-color:gray;
-    background-image:linear-gradient(lawngreen 0%,gray 0%);
+
+.progressbar {
+    position: absolute;
+    width: 3px;
+    height: 95%;
+    background-color: gray;
+    background-image: linear-gradient(lawngreen 50%,gray 50%);
+    background-repeat: no-repeat;
+    background-size: 3px 200%;
+    background-position: 0% 0%;
 }
-.stat__div{
-    position:relative;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:5px;
-    border:1px solid white;
-    margin:5px 5px 10px 10px;
-    border-radius:0px 5px 5px 0px;
+
+.stat__div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid white;
+    margin: 5px 5px 10px 10px;
+    border-radius: 0px 5px 5px 0px;
 }
-.round{
-    position:absolute;
-    transform:translate(-19px,0px);
-    padding:5px;
-    border-radius:50%;
-    background-color:gray;/*lawngreen;*/
+
+.round {
+    position: absolute;
+    transform: translate(-19px,0px);
+    padding: 5px;
+    border-radius: 50%;
+    background-color: gray; /*lawngreen;*/
 }
-/*#ff9f00*/
+
+.stat__div.done {
+    border: 1px solid #35e013;
+}
+
+    .stat__div.done > .round {
+        background-color: #35e013;
+    }
+
+.stat__div.cancel {
+    border: 1px solid #ff004e;
+}
+
+    .stat__div.cancel > .round {
+        background-color: #ff004e;
+    }
+
+.stat__div.return {
+    border: 1px solid #ff9f00;
+}
+
+    .stat__div.return > .round {
+        background-color: #ff9f00;
+    }

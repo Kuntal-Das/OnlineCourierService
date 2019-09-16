@@ -1,9 +1,11 @@
 ﻿using OnlineCourierService.Class;
+using OnlineCourierService.employee.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace OnlineCourierService.Parcel
@@ -99,10 +101,7 @@ namespace OnlineCourierService.Parcel
             LSname.Text += parcel.Sender.Name;
             LSaddress.Text += parcel.Sender.Address;
             LSemail.Text += parcel.Sender.Email;
-            if (parcel.Sender.CID == "-1")
-            {
-                LSisRegistered.Text += "No";
-            }
+            if (parcel.Sender.CID == "-1") { LSisRegistered.Text += "No"; }
             else
             {
                 LSisRegistered.Text += "Yes";
@@ -113,10 +112,7 @@ namespace OnlineCourierService.Parcel
             LRname.Text += parcel.Receiver.Name;
             LRaddress.Text += parcel.Receiver.Address;
             LRemail.Text += parcel.Receiver.Email;
-            if (parcel.Receiver.CID == "-1")
-            {
-                LRisRegistered.Text += "no";
-            }
+            if (parcel.Receiver.CID == "-1") { LRisRegistered.Text += "no"; }
             else
             {
                 LRisRegistered.Text += "Yes";
@@ -125,25 +121,66 @@ namespace OnlineCourierService.Parcel
                 LRphno.Text += rec.phno;
             }
 
-            if (parcel.SourceRID == -1)
-            {
-                PrCP2.Visible = false;
-                PsCP2.Visible = false;
-            }
-            if (parcel.DestRID == -1)
-            {
-                PrCP3.Visible = false;
-                PsCP3.Visible = false;
-            }
-            if (parcel.SourceBID == parcel.DestBID)
-            {
-                PrCP4.Visible = false;
-            }
 
             if (parcel.statuslist.Count != 0)
             {
+                Pstatus.Controls.Add(GenerateStaatusDiv("stat__div done", "Request Placed", parcel.ReqDate.ToString()));
+                double c1 = 1, c2 = 0, c = 0;
+                Employee emp;
+                parcel.statuslist.ForEach(s =>
+                {
+                    if ((parcel.SourceRID != -1 || (c != 4 && c != 5)) && (parcel.DestRID != -1 || (c != 6 && c != 7)) && (parcel.SourceBID != parcel.DestBID || c != 8))
+                    {
+                        if (s.date != null)
+                        {
+                            c1++;
+                            emp = new Employee(s.eid);
+                            emp.Filldata();
+                            Pstatus.Controls.Add(GenerateStaatusDiv("stat__div done", s.remark, s.date.ToString()));
+                        }
+                        else if (s.date == null)
+                        {
+                            c2++;
+                            Pstatus.Controls.Add(GenerateStaatusDiv("stat__div", s.remark, ""));
+                        }
+                    }
+                    c++;
+                });
+                double percent = 100 - ((c1 * 100d) / (c1 + c2));
+                string p = percent + "% " + percent + "%";
+                PprogressBar.Style.Add("background-position", p);
+                
+                //---------------------------------------------------
+                //if (parcel.SourceBID == parcel.DestBID)
+                //{
+                //    PrCP4.Visible = false;
+                //}
 
             }
+
+
+        }
+        private HtmlGenericControl GenerateStaatusDiv(string divClassName, string l1Text, string l2Text)
+        {
+            Label l1 = new Label();
+            //l1.CssClass = l1ID;
+            l1.Text = l1Text;
+
+            Label l2 = new Label();
+            //l1.CssClass = l1ID;
+            l2.Text = l2Text;
+
+            HtmlGenericControl span = new HtmlGenericControl("span");
+            span.Attributes.Add("class", "round");
+
+            HtmlGenericControl div = new HtmlGenericControl("div");
+            div.Attributes.Add("class", divClassName);
+
+            div.Controls.AddAt(0, span);
+            div.Controls.AddAt(1, l1);
+            div.Controls.AddAt(2, l2);
+
+            return div;
         }
 
 
