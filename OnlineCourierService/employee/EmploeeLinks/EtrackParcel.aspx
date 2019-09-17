@@ -4,9 +4,9 @@
     <link href="css/EtrackParcel.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CPHErrmsg" runat="server">
-    <asp:Panel ID="PError" runat="server" CssClass="PError" EnableViewState="false">
+    <asp:Panel ID="Perrormsg" runat="server" CssClass="PError" EnableViewState="false">
         <div class="cross"></div>
-        <asp:Label ID="Lerr" runat="server" Text="" CssClass="Lerr"></asp:Label>
+        <asp:Label ID="Lerrmsg" runat="server" Text="" CssClass="Lerr"></asp:Label>
         <script>
             document.querySelector(".cross").addEventListener("click", _ => {
                 document.querySelector(".PError").style.opacity = 0;
@@ -44,7 +44,7 @@
             <asp:BoundField DataField="CURRENTSTATUS" HeaderText="Current Status" />
             <asp:BoundField DataField="PAYMENTSTATUS" HeaderText="Payment Status" />
             <asp:BoundField DataField="DATE" HeaderText="Date Created" DataFormatString="{0:G}" />
-            <asp:HyperLinkField ShowHeader="False" Text="View Details" DataNavigateUrlFormatString="~/Parcel/ParcelStat.aspx?PLID={0}" DataNavigateUrlFields="PARCELid">
+            <asp:HyperLinkField ShowHeader="False" Text="View Details" DataNavigateUrlFormatString="~/employee/EmploeeLinks/EParcelDetails.aspx?PLID={0}" DataNavigateUrlFields="PARCELid">
                 <ControlStyle CssClass="btn" />
             </asp:HyperLinkField>
         </Columns>

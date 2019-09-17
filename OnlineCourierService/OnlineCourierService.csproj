@@ -105,6 +105,7 @@
     <Content Include="employee\EmploeeLinks\css\ECreateParcel.css" />
     <Content Include="employee\EmploeeLinks\css\EtrackParcel.css" />
     <Content Include="employee\EmploeeLinks\ECreateParcel.aspx" />
+    <Content Include="employee\EmploeeLinks\EParcelDetails.aspx" />
     <Content Include="employee\EmploeeLinks\EtrackParcel.aspx" />
     <Content Include="employee\EmploeeLinks\EUpdateParcel.aspx" />
     <Content Include="employee\empProfile.aspx" />
@@ -309,6 +310,13 @@
     </Compile>
     <Compile Include="employee\EmploeeLinks\EmployeeLink.Master.designer.cs">
       <DependentUpon>EmployeeLink.Master</DependentUpon>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EParcelDetails.aspx.cs">
+      <DependentUpon>EParcelDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EParcelDetails.aspx.designer.cs">
+      <DependentUpon>EParcelDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="employee\EmploeeLinks\EtrackParcel.aspx.cs">
       <DependentUpon>EtrackParcel.aspx</DependentUpon>

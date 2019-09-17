@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.info__container, .content {
+.info__container, .DetailsTab {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -18,7 +18,7 @@
     z-index: 2;
 }
 
-.content, .status {
+.DetailsTab, .status {
     position: relative;
     width: 87%;
     background-color: rgba(255, 255, 255, 0.70);

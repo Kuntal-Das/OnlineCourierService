@@ -1,5 +1,7 @@
 ﻿.content{
     width:80vw;
+    display:flex;
+    flex-direction:column;
 }
 .inputbox {
     width: max-content;
@@ -42,12 +44,32 @@
 }
 .ddl {
     height: 30px;
-    width: 300px;
     border-radius: 3px;
-    max-width: max-content;
+    max-width: 250px;
     border: 2px solid white;
     background-color: rgba(255, 255, 255, 0.60);
 }
 .lable{
     width:200px;
+}
+.PError {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 90vw;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 30px 20px 20px;
+    margin: 0px 20px;
+    border: 2px solid red;
+    background-color: rgba(245, 245, 245, 0.95);
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 300ms ease;
+}
+
+.Lerr {
+    color: black;
+    font-weight: bolder;
 }

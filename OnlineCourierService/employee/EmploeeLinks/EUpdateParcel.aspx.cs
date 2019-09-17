@@ -13,5 +13,26 @@ namespace OnlineCourierService.employee.EmploeeLinks
         {
 
         }
+        private void Notifyuser(string msg, bool isSuccessful)
+        {
+            if (isSuccessful)
+            {
+                Lerrmsg.Text = msg;
+                Lerrmsg.Style.Add("color", "Navy");
+                Perrormsg.Style.Add("border", "2px solid Navy");
+            }
+            else
+            {
+                Lerrmsg.Text = msg;
+                Lerrmsg.Style.Add("color", "Red");
+                Perrormsg.Style.Add("border", "2px solid lightred");
+            }
+            Perrormsg.Style.Add("display", "block");
+        }
+
+
+
+
+
     }
 }

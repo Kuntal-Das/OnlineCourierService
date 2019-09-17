@@ -8,62 +8,62 @@ using System.Web;
 
 namespace OnlineCourierService.Class
 {
-    internal class Status
+    public class Status
     {
-        internal string remark { get; private set; }
-        internal int eid { get; private set; }
-        internal Object date { get; private set; }
-        internal Status(string remark, int eid, Object date)
+        public string remark { get; private set; }
+        public int eid { get; private set; }
+        public Object date { get; private set; }
+        public Status(string remark, int eid, Object date)
         {
             this.eid = eid;
             this.date = date;
             this.remark = remark;
         }
     }
-    internal class SenderReceiver
+    public class SenderReceiver
     {
-        internal string CID { get; set; }
-        internal string Name { get; set; }
-        internal string Address { get; set; }
-        internal string Email { get; set; }
-        internal SenderReceiver(string CID, string Name, string Email, string Address)
+        public string CID { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public SenderReceiver(string CID, string Name, string Email, string Address)
         {
             this.CID = CID;
             this.Name = Name;
             this.Email = Email;
             this.Address = Address;
         }
-        internal SenderReceiver() { }
+        public SenderReceiver() { }
     }
-    internal class Package
+    public class Package
     {
         private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
-        internal static readonly DateTime nullDate = new DateTime(1800, 12, 31);
-        internal string ParcelID { private get; set; }
-        internal string ParcelType { get; private set; }
-        internal double Weight { get; private set; }
-        internal long SourceBID { get; private set; }
-        internal long SourceRID { get; private set; }
-        internal long DestBID { get; private set; }
-        internal long DestRID { get; private set; }
-        internal double invoicePrice { get; private set; }
-        internal string PaymentMethod { get; private set; }
-        internal string PaymentStatus { get; private set; }
-        internal DateTime PayDate { get; private set; }
-        internal int PackagingByCustomer { get; private set; }
-        internal int Container { get; private set; }
-        internal double Distance { get; private set; }
-        internal DateTime ReqDate { get; private set; }
-        internal long bidStatus { get; private set; }//processing req,PickedUp,Approved,ckeckpoints(BIDs),out for Delivery,received/returned
-        internal string currentStatus { get; private set; }//processing req,PickedUp,Approved,ckeckpoints(BIDs),out for Delivery,received/returned
-        internal SenderReceiver Sender { get; private set; }
-        internal SenderReceiver Receiver { get; private set; }
-        internal List<Status> statuslist { get; private set; }
-        internal Object REJECTED_DATE { get; set; }
-        internal Object DISAPPROVED_DATE { get; set; }
-        internal Object RETURNED_DATE { get; set; }
-        internal Object CANCELED_DATE { get; set; }
-        internal Package(string PacelType, double Weight, SenderReceiver Sender, SenderReceiver Receiver, long SourceBID, long DestBID, long SourceRID, long DestRID,
+        public static readonly DateTime nullDate = new DateTime(1800, 12, 31);
+        public string ParcelID { private get; set; }
+        public string ParcelType { get; private set; }
+        public double Weight { get; private set; }
+        public long SourceBID { get; private set; }
+        public long SourceRID { get; private set; }
+        public long DestBID { get; private set; }
+        public long DestRID { get; private set; }
+        public double invoicePrice { get; private set; }
+        public string PaymentMethod { get; private set; }
+        public string PaymentStatus { get; private set; }
+        public DateTime PayDate { get; private set; }
+        public int PackagingByCustomer { get; private set; }
+        public int Container { get; private set; }
+        public double Distance { get; private set; }
+        public DateTime ReqDate { get; private set; }
+        public long bidStatus { get; private set; }//processing req,PickedUp,Approved,ckeckpoints(BIDs),out for Delivery,received/returned
+        public string currentStatus { get; private set; }//processing req,PickedUp,Approved,ckeckpoints(BIDs),out for Delivery,received/returned
+        public SenderReceiver Sender { get; private set; }
+        public SenderReceiver Receiver { get; private set; }
+        public List<Status> statuslist { get; private set; }
+        public Object REJECTED_DATE { get; set; }
+        public Object DISAPPROVED_DATE { get; set; }
+        public Object RETURNED_DATE { get; set; }
+        public Object CANCELED_DATE { get; set; }
+        public Package(string PacelType, double Weight, SenderReceiver Sender, SenderReceiver Receiver, long SourceBID, long DestBID, long SourceRID, long DestRID,
             long bidStatus, double invoicePrice, string PaymentMethod, string PaymentStatus, int PackagingByCustomer, int Container)
         {
             this.ParcelType = PacelType;
@@ -84,7 +84,7 @@ namespace OnlineCourierService.Class
             this.Distance = 0;
             this.statuslist = null;
         }
-        internal Package(string PLID)
+        public Package(string PLID)
         {
             this.ParcelID = PLID;
             this.ParcelType = null;
@@ -106,7 +106,7 @@ namespace OnlineCourierService.Class
             this.Distance = -1;
             this.statuslist = null;
         }
-        internal string insertPackage()
+        public string insertPackage()
         {
             using (SqlConnection con = new SqlConnection(connectionstr))
             {
@@ -164,7 +164,7 @@ namespace OnlineCourierService.Class
             }
         }
 
-        internal static DataTable GetParcelsByPLID(string PLID)
+        public static DataTable GetParcelsByPLID(string PLID)
         {
             DataTable data = new DataTable("Parcel by PLID");
             using (SqlConnection con = new SqlConnection(connectionstr))
@@ -183,7 +183,7 @@ namespace OnlineCourierService.Class
             }
         }
 
-        internal static DataTable GetParcelsByCID(string CID, int type)///type:0 for sent ;1 for received
+        public static DataTable GetParcelsByCID(string CID, int type)///type:0 for sent ;1 for received
         {
             DataTable data = new DataTable("Parcel by PLID");
             using (SqlConnection con = new SqlConnection(connectionstr))
@@ -202,7 +202,7 @@ namespace OnlineCourierService.Class
                 finally { con.Close(); }
             }
         }
-        internal int FillData()
+        public int FillData()
         {
             using (SqlConnection con = new SqlConnection(connectionstr))
             {

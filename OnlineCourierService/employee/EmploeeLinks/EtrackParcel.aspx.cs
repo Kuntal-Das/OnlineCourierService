@@ -18,17 +18,17 @@ namespace OnlineCourierService.employee.EmploeeLinks
         {
             if (isSuccessful)
             {
-                Lerr.Text = msg;
-                Lerr.Style.Add("color", "Navy");
-                PError.Style.Add("border", "2px solid Navy");
+                Lerrmsg.Text = msg;
+                Lerrmsg.Style.Add("color", "Navy");
+                Perrormsg.Style.Add("border", "2px solid Navy");
             }
             else
             {
-                Lerr.Text = msg;
-                Lerr.Style.Add("color", "Red");
-                PError.Style.Add("border", "2px solid lightred");
+                Lerrmsg.Text = msg;
+                Lerrmsg.Style.Add("color", "Red");
+                Perrormsg.Style.Add("border", "2px solid lightred");
             }
-            PError.Style.Add("display", "block");
+            Perrormsg.Style.Add("display", "block");
         }
         private void LoadSrcResult()
         {

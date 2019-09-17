@@ -13,22 +13,22 @@ namespace OnlineCourierService.employee.EmploeeLinks {
     public partial class EtrackParcel {
         
         /// <summary>
-        /// PError control.
+        /// Perrormsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PError;
+        protected global::System.Web.UI.WebControls.Panel Perrormsg;
         
         /// <summary>
-        /// Lerr control.
+        /// Lerrmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lerr;
+        protected global::System.Web.UI.WebControls.Label Lerrmsg;
         
         /// <summary>
         /// HLhome control.

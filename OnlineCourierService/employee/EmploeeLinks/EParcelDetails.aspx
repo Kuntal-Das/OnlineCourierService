@@ -1,13 +1,21 @@
-﻿<%@ Page Title="Parcel Details" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="ParcelStat.aspx.cs" Inherits="OnlineCourierService.Parcel.ParcelStat" %>
+﻿<%@ Page Title="Parcel Details" Language="C#" MasterPageFile="~/employee/EmploeeLinks/EmployeeLink.Master" AutoEventWireup="true" CodeBehind="EParcelDetails.aspx.cs" Inherits="OnlineCourierService.employee.EmploeeLinks.EParcelDetails" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="css/ParcelStat.css" rel="stylesheet" />
+<asp:Content ID="Chead" ContentPlaceHolderID="head" runat="server">
+    <link href="css/ECreateParcel.css" rel="stylesheet" />
+    <link href="../../Parcel/css/ParcelStat.css" rel="stylesheet" />
+    <style>
+        .content {
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="CPHerrMsg" runat="server">
-    <asp:Panel ID="PError" runat="server" CssClass="PError" EnableViewState="false">
+<asp:Content ID="CErrmsg" ContentPlaceHolderID="CPHErrmsg" runat="server">
+    <asp:Panel ID="Perrormsg" runat="server" CssClass="PError" EnableViewState="false">
         <div class="cross"></div>
-        <asp:Label ID="Lerr" runat="server" Text="" CssClass="Lerr"></asp:Label>
+        <asp:Label ID="Lerrmsg" runat="server" Text="" CssClass="Lerr"></asp:Label>
         <script>
             document.querySelector(".cross").addEventListener("click", _ => {
                 document.querySelector(".PError").style.opacity = 0;
@@ -16,31 +24,16 @@
         </script>
     </asp:Panel>
 </asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="CPHuser" runat="server">
-    <asp:LinkButton ID="LoginSignIn" CssClass="login" runat="server" CausesValidation="false" OnClick="LoginSignIn_Click">
-        <span></span><span></span><span></span><span></span>
-        Sign Up or Login <svg role="presentation" class="icon user--icon"><use xlink:href="#usericon" /></svg>
-    </asp:LinkButton>
-    <asp:Panel ID="Puser" CssClass="account" runat="server" Visible="false" OnClick="toogleUserontrol();">
-        <asp:Panel ID="ProundedDP" CssClass="userDP" runat="server"></asp:Panel>
-        <asp:Label ID="Aname" CssClass="user" runat="server" Text="Employee"></asp:Label>
-        <ul class="usercontrol hidden">
-            <li class="l2__nav">
-                <asp:HyperLink CssClass="l2__link" ID="profile" runat="server" NavigateUrl="~/Profile.aspx">My Profile</asp:HyperLink>
-            </li>
-            <li class="l2__nav">
-                <asp:LinkButton ID="signout" CausesValidation="false" CssClass="l2__link" runat="server" OnClick="Logout">Log Out</asp:LinkButton>
-            </li>
-        </ul>
-    </asp:Panel>
-</asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="CPHheader" runat="server">
+<asp:Content ID="Cheader" ContentPlaceHolderID="CPHheader" runat="server">
     Parcel Details
 </asp:Content>
-
-<asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">
+<asp:Content ID="CsideBar" ContentPlaceHolderID="CPHsidebar" runat="server">
+    <asp:HyperLink ID="HLhome" CssClass="side-link" runat="server" NavigateUrl="~/employee/emp.aspx">Home</asp:HyperLink>
+    <asp:HyperLink ID="HLCreatep" CssClass="side-link" runat="server" NavigateUrl="~/employee/EmploeeLinks/ECreateParcel.aspx">Create Parcel</asp:HyperLink>
+    <asp:HyperLink ID="HLUpdateP" CssClass="side-link" runat="server" NavigateUrl="~/employee/EmploeeLinks/EUpdateParcel.aspx">Update Parcel Status</asp:HyperLink>
+    <asp:HyperLink ID="HLTrackP" CssClass="side-link" runat="server" NavigateUrl="~/employee/EmploeeLinks/EtrackParcel.aspx">Track Parcel</asp:HyperLink>
+</asp:Content>
+<asp:Content ID="Ccontent" ContentPlaceHolderID="CPHcontent" runat="server">
     <div class="info__container">
         <h3>Parcel Details</h3>
         <span>&#9661;</span>
