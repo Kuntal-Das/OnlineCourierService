@@ -30,9 +30,28 @@ namespace OnlineCourierService.employee.EmploeeLinks
             Perrormsg.Style.Add("display", "block");
         }
 
-
-
-
-
+        protected void RBLparcel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RBLparcel.SelectedIndex == 0)
+            {
+                P0.Visible = true;
+                P1.Visible =P2.Visible = P3.Visible = false;
+            }
+            else if (RBLparcel.SelectedIndex == 1)
+            {
+                P1.Visible = true;
+                P0.Visible =P2.Visible = P3.Visible = false;
+            }
+            else if (RBLparcel.SelectedIndex == 2)
+            {
+                P2.Visible = true;
+                P1.Visible = P0.Visible = P3.Visible = false;
+            }
+            else if (RBLparcel.SelectedIndex == 3)
+            {
+                P3.Visible = true;
+                P1.Visible = P2.Visible = P0.Visible = false;
+            }
+        }
     }
 }

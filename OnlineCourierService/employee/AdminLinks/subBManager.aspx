@@ -15,16 +15,6 @@
 <body>
     <form id="form1" method="post" runat="server">
         <div class="page">
-            <%--<asp:Panel ID="PError" runat="server" CssClass="PError" EnableViewState="false">
-                <div class="cross"></div>
-                <asp:Label ID="LErr" runat="server" Text="" CssClass="Lerr"></asp:Label>
-                <script>
-                    document.querySelector(".cross").addEventListener("click", _ => {
-                        document.querySelector(".PError").style.opacity = 0;
-                        document.querySelector(".PError").style.pointerEvents = "none";
-                    });
-                </script>
-            </asp:Panel>--%>
             <asp:Panel ID="PError" runat="server" Visible="false">
                 <asp:LinkButton ID="LinkButton1" CssClass="cross" OnClick="HidePErr" runat="server"></asp:LinkButton>
                 <asp:Label ID="LErr" runat="server" Text="Label" Visible="true"></asp:Label>
