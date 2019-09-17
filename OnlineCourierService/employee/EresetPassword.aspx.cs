@@ -34,14 +34,14 @@ namespace OnlineCourierService.employee
                 Session.Add("EValidGUID", true);
 
             }
+            //if (!Convert.ToBoolean(Session["EValidGUID"]))
+            //{
+            //    Notifyuser("Update Password Failed !", false);
+            //    return;
+            //}
         }
         private void Notifyuser(string msg, bool issuccessful)
         {
-            if (!Convert.ToBoolean(Session["EValidGUID"]))
-            {
-                Notifyuser("Update Password Failed !", false);
-                return;
-            }
             if (issuccessful)
             {
                 Lerr.Text = msg;
