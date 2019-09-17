@@ -20,7 +20,6 @@
                 </h1>
                 <div class="account">
                     <asp:Panel ID="ProundedDP" CssClass="adminDP" runat="server"></asp:Panel>
-
                     <asp:Label ID="Aname" CssClass="admin" runat="server" Text="Employee"></asp:Label>
                     <ul class="dropdown hidden">
                         <li class="l2__nav">
@@ -40,7 +39,7 @@
                         <p class="card__text">
                             Create a new parcel on behalf of a User(Registered/Unregistered)
                         </p>
-                        <asp:HyperLink ID="HyperLink1" CssClass="card__button" runat="server" NavigateUrl="#">GO</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" CssClass="card__button" runat="server" NavigateUrl="~/employee/EmploeeLinks/ECreateParcel.aspx">GO</asp:HyperLink>
                     </div>
 
                     <div class="card">
@@ -51,7 +50,7 @@
                             update the status of the parcel you deliver on the Go!<br />
                             Not a Delivery Person, You can still update Status of a parcel if it reaches in your branch!
                         </p>
-                        <asp:HyperLink ID="HyperLink2" CssClass="card__button" runat="server" NavigateUrl="#">GO</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink2" CssClass="card__button" runat="server" NavigateUrl="~/employee/EmploeeLinks/EUpdateParcel.aspx">GO</asp:HyperLink>
                     </div>
 
                     <div class="card">
@@ -61,7 +60,7 @@
                             Track Parcel by Parcel ID,<br />
                             Get Current Status of the parcel
                         </p>
-                        <asp:HyperLink ID="HyperLink3" CssClass="card__button" runat="server" NavigateUrl="#">GO</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink3" CssClass="card__button" runat="server" NavigateUrl="~/employee/EmploeeLinks/EtrackParcel.aspx">GO</asp:HyperLink>
                     </div>
                 </section>
             </main>

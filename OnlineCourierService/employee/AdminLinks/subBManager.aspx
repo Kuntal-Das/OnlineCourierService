@@ -15,6 +15,16 @@
 <body>
     <form id="form1" method="post" runat="server">
         <div class="page">
+            <%--<asp:Panel ID="PError" runat="server" CssClass="PError" EnableViewState="false">
+                <div class="cross"></div>
+                <asp:Label ID="LErr" runat="server" Text="" CssClass="Lerr"></asp:Label>
+                <script>
+                    document.querySelector(".cross").addEventListener("click", _ => {
+                        document.querySelector(".PError").style.opacity = 0;
+                        document.querySelector(".PError").style.pointerEvents = "none";
+                    });
+                </script>
+            </asp:Panel>--%>
             <asp:Panel ID="PError" runat="server" Visible="false">
                 <asp:LinkButton ID="LinkButton1" CssClass="cross" OnClick="HidePErr" runat="server"></asp:LinkButton>
                 <asp:Label ID="LErr" runat="server" Text="Label" Visible="true"></asp:Label>
@@ -175,9 +185,9 @@
                                             <div>
                                                 <asp:RequiredFieldValidator ID="RFVRegBlon" ControlToValidate="TBRegBlon" runat="server" ErrorMessage="Longitude of Regional Branch is Required"
                                                     Text="*" Display="Dynamic" ForeColor="Red" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="CVRegBlon" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch is of Decimal Type" ForeColor="Red" Operator="DataTypeCheck" SetFocusOnError="True" Type="Double">*</asp:CompareValidator>
-                                            <asp:CompareValidator ID="CVRegBlon0" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch Must be Greater than or Equal To Zero" ForeColor="Red" Operator="GreaterThanEqual" SetFocusOnError="True" Type="Double" ValueToCompare="0">*</asp:CompareValidator>
-                                            <asp:CompareValidator ID="CVRegBlon1" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch Must be Less than or Equal To 180" ForeColor="Red" Operator="LessThanEqual" SetFocusOnError="True" Type="Double" ValueToCompare="180">*</asp:CompareValidator>
+                                                <asp:CompareValidator ID="CVRegBlon" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch is of Decimal Type" ForeColor="Red" Operator="DataTypeCheck" SetFocusOnError="True" Type="Double">*</asp:CompareValidator>
+                                                <asp:CompareValidator ID="CVRegBlon0" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch Must be Greater than or Equal To Zero" ForeColor="Red" Operator="GreaterThanEqual" SetFocusOnError="True" Type="Double" ValueToCompare="0">*</asp:CompareValidator>
+                                                <asp:CompareValidator ID="CVRegBlon1" runat="server" ControlToValidate="TBRegBlon" Display="Dynamic" ErrorMessage="Latetude for Regional Branch Must be Less than or Equal To 180" ForeColor="Red" Operator="LessThanEqual" SetFocusOnError="True" Type="Double" ValueToCompare="180">*</asp:CompareValidator>
                                             </div>
                                         </EditItemTemplate>
                                         <ItemTemplate>

@@ -1,0 +1,84 @@
+﻿.inner__div {
+    margin: 20px 10px 15px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 350px;
+    border: 2px solid white;
+    background-color: rgba(212, 208, 208, 0.50);
+    transition: background-color 300ms ease;
+}
+.input:focus {
+    width: 370px;
+    background-color: rgba(255, 255, 255, 0.50);
+}
+.btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #1d9bee;
+    box-shadow: 0px 0px 0px 0px rgba( 0, 0, 0, 0.60);
+    transition: box-shadow 250ms ease,transform 250ms ease;
+}
+.btn:focus,
+.btn:hover {
+    transform: scale(1.01);
+    box-shadow: 5px 5px 10px 0px rgba( 1, 1, 0, 0.60);
+}
+.gv {
+    margin: 15px;
+    text-align: center;
+    border-collapse: collapse;
+}
+.gv td, .gv th {
+    border: 1px solid #ddd;
+    padding: 15px 3px;
+}
+.gv tr:nth-child(even) {
+    background-color: #f2f2f2;
+    transition: background-color 300ms ease;
+}
+.gv tr:nth-child(odd) {
+    background-color: #ddd;
+    transition: background-color 300ms ease;
+}
+.gv tr:hover {
+    background-color: rgb(156, 210, 241);
+}
+.gv th {
+    padding: 12px 0px;
+    background-color: #4CAF50;
+    color: white;
+}
+.PError {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 90vw;
+    transform: translateX(-50%);
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 30px 20px 20px;
+    margin: 0px 20px;
+    border: 2px solid red;
+    background-color: rgba(245, 245, 245, 0.95);
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 300ms ease;
+}
+
+.Lerr {
+    color: black;
+    font-weight: bolder;
+}

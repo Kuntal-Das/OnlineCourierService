@@ -102,6 +102,11 @@
     <Content Include="employee\AdminLinks\css\sidebar.css" />
     <Content Include="employee\EforgotPassword.aspx" />
     <Content Include="employee\emp.aspx" />
+    <Content Include="employee\EmploeeLinks\css\ECreateParcel.css" />
+    <Content Include="employee\EmploeeLinks\css\EtrackParcel.css" />
+    <Content Include="employee\EmploeeLinks\ECreateParcel.aspx" />
+    <Content Include="employee\EmploeeLinks\EtrackParcel.aspx" />
+    <Content Include="employee\EmploeeLinks\EUpdateParcel.aspx" />
     <Content Include="employee\empProfile.aspx" />
     <Content Include="employee\EresetPassword.aspx" />
     <Content Include="employee\img\dp.jpg" />
@@ -291,6 +296,34 @@
     <Compile Include="employee\emp.aspx.designer.cs">
       <DependentUpon>emp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="employee\EmploeeLinks\ECreateParcel.aspx.cs">
+      <DependentUpon>ECreateParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\ECreateParcel.aspx.designer.cs">
+      <DependentUpon>ECreateParcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EmployeeLink.Master.cs">
+      <DependentUpon>EmployeeLink.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EmployeeLink.Master.designer.cs">
+      <DependentUpon>EmployeeLink.Master</DependentUpon>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EtrackParcel.aspx.cs">
+      <DependentUpon>EtrackParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EtrackParcel.aspx.designer.cs">
+      <DependentUpon>EtrackParcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EUpdateParcel.aspx.cs">
+      <DependentUpon>EUpdateParcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="employee\EmploeeLinks\EUpdateParcel.aspx.designer.cs">
+      <DependentUpon>EUpdateParcel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="employee\empProfile.aspx.cs">
       <DependentUpon>empProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,6 +472,7 @@
   <ItemGroup>
     <Content Include="employee\js\Libraries\greensock-js\esm\package.json" />
     <Content Include="index.Master" />
+    <Content Include="employee\EmploeeLinks\EmployeeLink.Master" />
     <None Include="packages.config" />
     <Content Include="Parcel\Parcel.Master" />
     <None Include="Web.Debug.config">

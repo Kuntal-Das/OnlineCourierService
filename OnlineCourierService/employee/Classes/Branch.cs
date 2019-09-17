@@ -7,22 +7,19 @@ using System.Data;
 
 namespace OnlineCourierService.employee.Classes
 {
-    public class Branch
+    internal class Branch
     {
         private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
         private static SqlConnection con;
-        //private SqlCommand cmd;
-        //private SqlDataAdapter da;
-        public long Bid { get; private set; }
-        public long Rid { get; private set; }
-        public string name { get; set; }
-        public string address { get; set; }
-        public double lat { get; set; }
-        public string status { get; set; }
-        public double lon { get; set; }
-        //public Location loc { set; get; }
+        internal long Bid { get; private set; }
+        internal long Rid { get; private set; }
+        internal string name { get; set; }
+        internal string address { get; set; }
+        internal double lat { get; set; }
+        internal string status { get; set; }
+        internal double lon { get; set; }
 
-        public static long GetRidbyBid(long BID)
+        internal static long GetRidbyBid(long BID)
         {
             using (SqlConnection con = new SqlConnection(connectionstr))
             {
@@ -47,7 +44,7 @@ namespace OnlineCourierService.employee.Classes
                 }
             }
         }
-        public static int GetRBidByRegID(int Regid)
+        internal static int GetRBidByRegID(int Regid)
         {
             int RBid = -1;
 
@@ -79,7 +76,7 @@ namespace OnlineCourierService.employee.Classes
             return RBid;
         }
 
-        public static int CreateRegBranch(int regid, string Bname, string Baddr, double latitude, double longitude)
+        internal static int CreateRegBranch(int regid, string Bname, string Baddr, double latitude, double longitude)
         {
             int Bid = -1;
 
@@ -155,7 +152,7 @@ namespace OnlineCourierService.employee.Classes
             return count;
         }
 
-        public static int CreateSubBranch(long rid, string Name, string Address, double latitude, double longitude)
+        internal static int CreateSubBranch(long rid, string Name, string Address, double latitude, double longitude)
         {
             int Bid = -1;
 
@@ -201,7 +198,7 @@ namespace OnlineCourierService.employee.Classes
             return Bid;
         }
 
-        public static int CountRegB()
+        internal static int CountRegB()
         {
             using (SqlConnection con = new SqlConnection(connectionstr))
             {
@@ -211,7 +208,7 @@ namespace OnlineCourierService.employee.Classes
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
         }
-        public static List<Branch> GetRegBranches(int startIndex, int pageSize)
+        internal static List<Branch> GetRegBranches(int startIndex, int pageSize)
         {
             List<Branch> Regbs = new List<Branch>();
             using (SqlConnection con = new SqlConnection(connectionstr))
@@ -242,7 +239,7 @@ namespace OnlineCourierService.employee.Classes
             return Regbs;
         }
 
-        public static int UpdateRegBranches(long OLD_Bid,
+        internal static int UpdateRegBranches(long OLD_Bid,
             string OLD_name, string OLD_address, double OLD_lat, double OLD_lon, string OLD_status,
             string name, string address, double lat, double lon, string status)
         {
@@ -282,7 +279,7 @@ namespace OnlineCourierService.employee.Classes
             }
         }
 
-        public static List<Branch> GetSubBranch(int rid)
+        internal static List<Branch> GetSubBranch(int rid)
         {
             List<Branch> SubBs = new List<Branch>();
 
@@ -313,7 +310,7 @@ namespace OnlineCourierService.employee.Classes
             }
             return SubBs;
         }
-        public static int UpdateSubBranches(long OLD_Bid,
+        internal static int UpdateSubBranches(long OLD_Bid,
            string OLD_name, string OLD_address, double OLD_lat, double OLD_lon, string OLD_status,
            string name, string address, double lat, double lon, string status)
         {
@@ -353,7 +350,24 @@ namespace OnlineCourierService.employee.Classes
             }
         }
 
-
-
+        internal static string GetBranchNameByBID(long BID)
+        {
+            string name = null;
+            using (con = new SqlConnection(connectionstr))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("select Bname from Branch where BID=@BID", con);
+                    cmd.Parameters.AddWithValue("@BID", BID);
+                    name = Convert.ToString(cmd.ExecuteScalar());
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+            return name;
+        }
     }
 }
