@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Parcel Details" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="ParcelStat.aspx.cs" Inherits="OnlineCourierService.Parcel.ParcelStat" %>
+﻿<%@ Page Title="Advance Shipment Tracking" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="ParcelStat.aspx.cs" Inherits="OnlineCourierService.Parcel.ParcelStat" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/ParcelStat.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="CPHheader" runat="server">
-    Parcel Details
+    Advance Shipment Tracking
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="CPHcontent" runat="server">

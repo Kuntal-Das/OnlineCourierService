@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Parcel Details" Language="C#" MasterPageFile="~/employee/EmploeeLinks/EmployeeLink.Master" AutoEventWireup="true" CodeBehind="EParcelDetails.aspx.cs" Inherits="OnlineCourierService.employee.EmploeeLinks.EParcelDetails" %>
+﻿<%@ Page Title="Advance Parcel Tracking" Language="C#" MasterPageFile="~/employee/EmploeeLinks/EmployeeLink.Master" AutoEventWireup="true" CodeBehind="EParcelDetails.aspx.cs" Inherits="OnlineCourierService.employee.EmploeeLinks.EParcelDetails" %>
 
 <asp:Content ID="Chead" ContentPlaceHolderID="head" runat="server">
     <link href="css/ECreateParcel.css" rel="stylesheet" />
@@ -24,9 +24,7 @@
         </script>
     </asp:Panel>
 </asp:Content>
-<asp:Content ID="Cheader" ContentPlaceHolderID="CPHheader" runat="server">
-    Parcel Details
-</asp:Content>
+<asp:Content ID="Cheader" ContentPlaceHolderID="CPHheader" runat="server">Advance Parcel Tracking</asp:Content>
 <asp:Content ID="CsideBar" ContentPlaceHolderID="CPHsidebar" runat="server">
     <asp:HyperLink ID="HLhome" CssClass="side-link" runat="server" NavigateUrl="~/employee/emp.aspx">Home</asp:HyperLink>
     <asp:HyperLink ID="HLCreatep" CssClass="side-link" runat="server" NavigateUrl="~/employee/EmploeeLinks/ECreateParcel.aspx">Create Parcel</asp:HyperLink>
