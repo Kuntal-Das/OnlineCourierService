@@ -152,19 +152,14 @@ namespace OnlineCourierService.Parcel
         //{
         //    PrCP4.Visible = false;
         //}
-
       }
-
-
     }
     private HtmlGenericControl GenerateStaatusDiv(string divClassName, string l1Text, string l2Text)
     {
       Label l1 = new Label();
-      //l1.CssClass = l1ID;
       l1.Text = l1Text;
 
       Label l2 = new Label();
-      //l1.CssClass = l1ID;
       l2.Text = l2Text;
 
       HtmlGenericControl span = new HtmlGenericControl("span");
@@ -179,7 +174,5 @@ namespace OnlineCourierService.Parcel
 
       return div;
     }
-
-
   }
 }

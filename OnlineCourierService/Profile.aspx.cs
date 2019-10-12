@@ -28,7 +28,8 @@ namespace OnlineCourierService
     private void LoadData(Customer cus)
     {
       cus.FillData();
-      Cache.Add("CustomerData", cus, null, Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5), CacheItemPriority.AboveNormal, null);
+      string CustomerData = "CustomerData" + Session["LightCus"].ToString();
+      Cache.Add(CustomerData, cus, null, Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5), CacheItemPriority.AboveNormal, null);
       Aname.Text = cus.name;
       if (cus.imgurl != null)
       {
@@ -80,7 +81,8 @@ namespace OnlineCourierService
     {
       if (Page.IsValid)
       {
-        Customer cus = (Customer)Cache.Get("CustomerData");
+        string CustomerData = "CustomerData" + Session["LightCus"].ToString();
+        Customer cus = (Customer)Cache.Get(CustomerData);
         if (cus == null)
         {
           cus = new Customer(Session["LightCus"].ToString(), true);

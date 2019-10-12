@@ -83,7 +83,7 @@ namespace OnlineCourierService.employee.AdminLinks
 
         HttpPostedFile image = FUprofileImg.PostedFile;
 
-        Employee newemp = new Employee(name, addr, gender, email, dob, bid, phno, "N0password", postindex, true);
+        Employee newemp = new Employee(name, addr, gender, email, dob, bid, phno, "N0p@ssword", postindex, true);
 
         if (Employee.CountByEmail(email) != 0)
         {
@@ -277,15 +277,6 @@ namespace OnlineCourierService.employee.AdminLinks
           {
             GVEmp.EditIndex = -1;
             LoadGVDataByEid();
-
-            //GVEmp.EditIndex = rowindex;
-            //LoadGVDataByEid();
-            //((DropDownList)(GVEmp.Rows[rowindex].Cells[7].FindControl("DDLBID"))).SelectedValue = OLD_BID.ToString();
-
-            //OLD_BID = Convert.ToInt64(((DropDownList)GVEmp.Rows[rowindex].FindControl("DDLBID")).SelectedValue);
-            //OLD_POSTINDEX = Convert.ToInt32(((DropDownList)GVEmp.Rows[rowindex].FindControl("DDLpost")).SelectedValue);
-            //OLD_status = ((DropDownList)GVEmp.Rows[rowindex].FindControl("DDLstatus")).SelectedValue;
-
             LErr.Text = "Row with EID : " + e.CommandArgument + " not Saved Due to Data Conflict";
             LErr.ForeColor = System.Drawing.Color.Red;
             PError.Style.Add("border", "2px solid lightRed");

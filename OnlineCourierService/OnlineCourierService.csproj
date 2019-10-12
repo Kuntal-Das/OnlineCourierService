@@ -186,7 +186,6 @@
     <Content Include="employee\js\logadmunm.js" />
     <Content Include="employee\js\main.js" />
     <Content Include="employee\login.aspx" />
-    <Content Include="employee\notification.aspx" />
     <Content Include="employee\password.aspx" />
     <Content Include="employee\svg\lightning.svg" />
     <Content Include="employee\svg\noun_notification_2753002.svg" />
@@ -282,7 +281,6 @@
     <Compile Include="employee\Classes\Branch.cs" />
     <Compile Include="employee\Classes\DataAccessLayer.cs" />
     <Compile Include="employee\Classes\Employee.cs" />
-    <Compile Include="employee\Classes\Location.cs" />
     <Compile Include="employee\EforgotPassword.aspx.cs">
       <DependentUpon>EforgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,13 +350,6 @@
     </Compile>
     <Compile Include="employee\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="employee\notification.aspx.cs">
-      <DependentUpon>notification.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="employee\notification.aspx.designer.cs">
-      <DependentUpon>notification.aspx</DependentUpon>
     </Compile>
     <Compile Include="employee\password.aspx.cs">
       <DependentUpon>password.aspx</DependentUpon>

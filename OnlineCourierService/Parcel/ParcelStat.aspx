@@ -1,5 +1,6 @@
-﻿<%@ Page Title="Advance Shipment Tracking" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="ParcelStat.aspx.cs" Inherits="OnlineCourierService.Parcel.ParcelStat" %>
-
+﻿<%@ Page Title="Advance Shipment Tracking" Language="C#" MasterPageFile="~/Parcel/Parcel.Master" AutoEventWireup="true" CodeBehind="ParcelStat.aspx.cs"
+  Inherits="OnlineCourierService.Parcel.ParcelStat" %>
+<%--<%@ OutputCache Duration="60" VaryByParam="none" %>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/ParcelStat.css" rel="stylesheet" />
 </asp:Content>
