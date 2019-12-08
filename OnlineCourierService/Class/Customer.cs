@@ -10,7 +10,7 @@ namespace OnlineCourierService.Class
 {
   public class Customer : Password
   {
-    private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=************";
     public string cid { private get; set; }
     public string name { get; set; }
     public string address { get; set; }
