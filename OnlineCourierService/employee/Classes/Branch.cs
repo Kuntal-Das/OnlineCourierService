@@ -9,7 +9,8 @@ namespace OnlineCourierService.employee.Classes
 {
   public class Branch
   {
-    private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    //private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    private static readonly string connectionstr = "Data Source=NOT-A-PC;Initial Catalog=CourierService;Integrated Security=True";
     private static SqlConnection con;
     public long Bid { get; private set; }
     public long Rid { get; private set; }

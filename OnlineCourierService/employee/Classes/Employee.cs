@@ -9,7 +9,8 @@ namespace OnlineCourierService.employee.Classes
 {
   public class Employee : Password
   {
-    private static readonly string connectionString = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    //private static readonly string connectionString = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    private static readonly string connectionString = "Data Source=NOT-A-PC;Initial Catalog=CourierService;Integrated Security=True";
     private SqlConnection con;
     private SqlCommand cmd;
     private SqlDataAdapter da;

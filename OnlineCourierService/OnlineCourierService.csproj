@@ -471,6 +471,8 @@
     <Content Include="employee\EmploeeLinks\EmployeeLink.Master" />
     <None Include="packages.config" />
     <Content Include="Parcel\Parcel.Master" />
+    <None Include="Properties\PublishProfiles\shinypeacock-7a1d - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\shinypeacock-7a1d - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -478,9 +480,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

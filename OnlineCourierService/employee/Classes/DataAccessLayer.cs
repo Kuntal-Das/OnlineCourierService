@@ -71,7 +71,8 @@ namespace OnlineCourierService.employee.Classes
   }
   public class DataAccessLayer
   {
-    private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    //private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    private static readonly string connectionstr = "Data Source=NOT-A-PC;Initial Catalog=CourierService;Integrated Security=True";
     public static List<Region> GetRegion(){
       List<Region> r = new List<Region>();
       r.Add(new Region(-1, "Select Region"));

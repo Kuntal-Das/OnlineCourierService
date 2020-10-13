@@ -35,7 +35,8 @@ namespace OnlineCourierService.Class
   }
   public class Package
   {
-    private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    //private static readonly string connectionstr = "Data Source=DESKTOP-74RBQ7M\\KUNTALSQLS;Initial Catalog=CourierService;Persist Security Info=True;User ID=sa;Password=!@Kd_Hell45";
+    private static readonly string connectionstr = "Data Source=NOT-A-PC;Initial Catalog=CourierService;Integrated Security=True";
     public static readonly DateTime nullDate = new DateTime(1800, 12, 31);
     public string ParcelID { private get; set; }
     public string ParcelType { get; private set; }

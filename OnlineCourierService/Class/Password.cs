@@ -37,7 +37,7 @@ namespace OnlineCourierService.Class
         SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
         smtpClient.Credentials = new System.Net.NetworkCredential(){
           UserName = "noreply.lightning.corp599@gmail.com",
-          Password = "***********************************"
+          Password = ""
         };
         smtpClient.EnableSsl = true;
         smtpClient.Send(mailMessage);
