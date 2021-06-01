@@ -2,7 +2,7 @@
 
 This web app is develooped with asp.Net and SQL Server
 
-System Design: It is designed with three tire archeture in mind
+System Design: It is designed with three tire archeture in mind. [DFD & ERD](https://docs.google.com/document/d/1EQD7IKjBIg_tSDQwZU0dE-xxdFBHk-VPF7i7ZiD9UCM/edit?usp=sharing)
 
 ![three-tire](https://user-images.githubusercontent.com/42152227/120269345-419baf80-c2c5-11eb-9d19-61fe5c7900bc.jpg)
 
@@ -61,3 +61,5 @@ Future Improvements can be added:
 - sending a parcel to a location by usng maps.
 - automatic distance and fee calculation.
 - automatic route calculation.
+
+More Screenshots are available [here](https://drive.google.com/file/d/1KZw4KR4gYNSqxmk6wQQ5a0ZymcgSfwkR/view?usp=sharing)
