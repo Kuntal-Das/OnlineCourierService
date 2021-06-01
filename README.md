@@ -1,19 +1,21 @@
 # OnlineCourierService
 
-This web app is develooped with asp.Net and SQL Server
+This web app is develooped with asp.net and SQL Server
 
-System Design: It is designed with three tire archeture in mind. DFD and ERD are available [here](https://docs.google.com/document/d/1EQD7IKjBIg_tSDQwZU0dE-xxdFBHk-VPF7i7ZiD9UCM/edit?usp=sharing)
+System Design: It is designed with three tire archeture in mind. [DFD](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:07aa6cd1-83fc-412b-97fa-733aaaf251b8) and [ERD](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:e9bdb540-51f2-4980-a72b-f7c10593f06a) are available here.
 
 ![three-tire](https://user-images.githubusercontent.com/42152227/120269345-419baf80-c2c5-11eb-9d19-61fe5c7900bc.jpg)
 
-It is designed to have 4 types of users 
+It is designed to have 4 types of users.
+All passwords are stored in SHA256 hash in the database. 
 
 1. Registered Customer
 2. Unregistered Customer
 3. Employee with managerial priviledge
 4. General Employee
 
-Functionality
+
+## Functionality
 
 Unregistered user can 
 
