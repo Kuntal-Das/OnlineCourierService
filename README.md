@@ -1,6 +1,6 @@
 # OnlineCourierService
 
-This web app is develooped with asp.net and SQL Server
+This web app is develooped with asp.net and SQL Server 2016(15.0.2000.5)
 
 System Design: It is designed with three tire archeture in mind. [DFD](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:07aa6cd1-83fc-412b-97fa-733aaaf251b8) and [ERD](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:e9bdb540-51f2-4980-a72b-f7c10593f06a) are available here.
 
